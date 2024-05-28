@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title> About Me </title>
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="../Styles/Style.css">                                                       <!-- My own CSS -->
+
+        <!-- Bootstrap JS, Popper.js, and jQuery Scripts-->
+        <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.9/dist/umd/popper.min.js"></script>
+        <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </head>
+
+<body class="d-flex flex-column h-100">
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="/index.html">The Symbol Factory</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <!-- Dropdown for Projects -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            MyProjects
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/MyProjects/TheWallOfShaders/index.html">
+                                TheWallOfShaders
+                            </a>
+                            <a class="dropdown-item" href="/MyProjects/ChartJSDashboard/index.html">
+                                ChartJSDashboard
+                            </a>
+                            <a class="dropdown-item" href="/MyProjects/OpenGLShaderEditor/index.html">
+                                OpenGLShaderEditor
+                            </a>
+                            <a class="dropdown-item" href="/MyProjects/BootstrapCardTemplates/index.html">
+                                BootstrapCardTemplates
+                            </a>
+                            <!-- Add more project links here -->
+                        </div>
+                    </li>
+                    <!-- End of Dropdown -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Pages/AboutMe.html">AboutMe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Pages/Services.html">Services</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-shrink-0" >
+        <!-- Content Area -->
+        <div class="container mt-5" id="content-area" >
+            <div class="row">
+                <!-- Card for Home Page -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Home</h5>
+                            <p class="card-text">Welcome to The Symbol Factory. Discover my work and passion for software
+                                development.</p>
+                            <a href="/index.html" class="btn btn-light">Go to Home</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card for Projects Page -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Projects</h5>
+                            <p class="card-text">Explore the projects I've worked on and contributed to.</p>
+                            <a href="/MyProjects/index.html" class="btn btn-light">View Projects</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card for About Me Page -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">About Me</h5>
+                            <p class="card-text">Learn more about my journey and expertise in software development.</p>
+                            <a href="/Pages/AboutMe.html" class="btn btn-light">About Me</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card for Services Page -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Services</h5>
+                            <p class="card-text">Find out about the services I offer and how I can help you with your
+                                software needs.</p>
+                            <a href="/Pages/Services.html" class="btn btn-light">Our Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 
+        Footer
+        mt-auto = margin top is set to auto. This pushes down the element 
+        vertically to stick to the bottom of its container. 
+
+        py-3 = padding on the y-axis (both top and bottom) is set to scale 3. 
+        Which is a size scale in Bootstrap. 
+    -->
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+        <div class="container">
+            <span class="text-body-secondary">© 2024 The Symbol Factory TEST</span>
+        </div>
+    </footer>
+
+</body>
+</html>

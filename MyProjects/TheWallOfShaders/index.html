@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100"> 
+
+<head>
+     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> The Wall Of Shaders </title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Styles/Style.css">
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js">                           </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.9/dist/umd/popper.min.js">   </script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">     </script>
+    <script defer src="../../Scripts/Main.js">                                                      </script>
+    <script defer src="./Scripts/ShadersManager.js">                                                </script>
+
+</head>
+
+<body class="d-flex flex-column h-100 shader-cards-body">
+    <!-- Header -->
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
+            <a class="navbar-brand" href="/index.html">
+                🧱The Wall Of Shaders
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">
+                            Home 
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <!-- Dropdown for Projects -->
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            MyProjects
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item active" href="./index.html"> 
+                                🧱TheWallOfShaders
+                            </a>
+                            <a class="dropdown-item" href="../ChartJSDashboard/">
+                                📈ChartJSDashBoard
+                            </a>
+                            <a class="dropdown-item" href="../OpenGLShaderEditor/">
+                                ✨OpenGLShaderEditor
+                            </a>
+                            <a class="dropdown-item" href="../BootstrapCards/">
+                                🎴BootstrapCards
+                            </a>
+                            <!-- Add more project links here -->
+                        </div>
+                    </li>
+                    <!-- End of Dropdown -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Pages/AboutMe.html">
+                            AboutMe
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Pages/Services.html">
+                            Services
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-shrink-0" >
+        <!-- Content Area -->
+        <div class="container mt-5">
+            <div class="row">
+
+                <!-- Shader Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="shader-card">
+                        <div class="shader-card-body">
+
+                            <h6 class="card-title shader-card-title">Hello Texture Uniform</h6>
+                            <canvas id="glCanvas1" class="shader-canvas"></canvas>
+                            <h6 class="card-subtitle shader-card-subtitle">Subtitle</h6>
+                            <p class="card-text shader-card-text"> Hello Texture Uniform Shader. This shader was used to test the injecting of the u_texture sampler2D uniform variable.</p>
+                            <div class="shader-card-footer">
+                                <p>Footer</p>
+                                <!-- <a href="./Pages/AboutMe.html" class="btn btn-light shader-card-btn">View</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shader Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="shader-card">
+                        <div class="shader-card-body">
+                            <h6 class="card-title shader-card-title">Shader 2</h6>
+                            <canvas id="glCanvas2" class="shader-canvas"></canvas>
+                            <h6 class="card-subtitle shader-card-subtitle">Subtitle</h6>
+                            <p class="card-text shader-card-text">Explore the projects I've worked on and contributed to.</p>
+                            <div class="shader-card-footer">
+                                <p>Footer</p>
+                                <!-- <a href="./Pages/AboutMe.html" class="btn btn-light shader-card-btn">View</a> -->
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shader Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="shader-card">
+                        <div class="shader-card-body">
+                            <h6 class="card-title shader-card-title">Shader 3</h6>
+                            <canvas id="glCanvas3" class="shader-canvas"></canvas>
+                            <h6 class="card-subtitle shader-card-subtitle">Subtitle</h6>
+                            <p class="card-text shader-card-text">Learn more about my journey and expertise in software development.</p>
+                            <div class="shader-card-footer">
+                                <p>Footer</p>
+                                <!-- <a href="./Pages/AboutMe.html" class="btn btn-light shader-card-btn">View</a> -->
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shader Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="shader-card">
+                        <div class="shader-card-body">
+                            <h6 class="card-title shader-card-title">Shader 4</h6>
+                            <canvas id="glCanvas4" class="shader-canvas"></canvas>
+                            <h6 class="card-subtitle shader-card-subtitle">Subtitle</h6>
+                            <p class="card-text shader-card-text">Learn more about my journey and expertise in software development.</p>
+                            <div class="shader-card-footer">
+                                <p>Footer</p>
+                                <!-- <a href="./Pages/AboutMe.html" class="btn btn-light shader-card-btn">View</a> -->
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shader Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="shader-card">
+                        <div class="shader-card-body">
+                            <h6 class="card-title shader-card-title">Shader 5</h6>
+                            <canvas id="glCanvas5" class="shader-canvas"></canvas>
+                            <h6 class="card-subtitle shader-card-subtitle">Subtitle</h6>
+                            <p class="card-text shader-card-text">Learn more about my journey and expertise in software development.</p>
+                            <div class="shader-card-footer">
+                                <p>Footer</p>
+                                <!-- <a href="./Pages/AboutMe.html" class="btn btn-light shader-card-btn">View</a> -->
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shader Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="shader-card">
+                        <div class="shader-card-body">
+                            <h6 class="card-title shader-card-title">Shader 6</h6>
+                            <canvas id="glCanvas6" class="shader-canvas"></canvas>
+                            <h6 class="card-subtitle shader-card-subtitle">Subtitle</h6>
+                            <p class="card-text shader-card-text">Learn more about my journey and expertise in software development.</p>
+                            <div class="shader-card-footer">
+                                <p>Footer</p>
+                                <!-- <a href="./Pages/AboutMe.html" class="btn btn-light shader-card-btn">View</a> -->
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shader Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="shader-card">
+                        <div class="shader-card-body">
+                            <h6 class="card-title shader-card-title">Shader 7</h6>
+                            <canvas id="glCanvas7" class="shader-canvas"></canvas>
+                            <h6 class="card-subtitle shader-card-subtitle">Subtitle</h6>
+                            
+                            <div class="text form-group">
+                                <!-- <span class="input-group-text">With textarea</span> -->
+                                <!-- <textarea class="form-control" aria-label="With textarea"></textarea> -->
+                                <textarea class="form-control card-text shader-card-textarea" aria-label="a" spellcheck="false" id="shaderInput1">
+void main() {
+    gl_FragColor = vec4(gl_FragCoord.x / 200.0, gl_FragCoord.y / 200.0, 0.0, 1.0);
+}
+                                </textarea>
+                            </div>
+                            
+                            <div class="shader-card-footer">
+                                <button id="shaderButton1" class="btn btn-light btn-small shader-card-btn">Update Shader</button>
+                                <!-- <p>Footer</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- 
+        Footer
+        mt-auto = margin top is set to auto. This pushes down the element 
+        vertically to stick to the bottom of its container. 
+
+        py-3 = padding on the y-axis (both top and bottom) is set to scale 3. 
+        Which is a size scale in Bootstrap. 
+    -->
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+        <div class="container">
+            <span class="text-body-secondary">© 2024 The Symbol Factory </span>
+        </div>
+    </footer>
+
+</body>
+
+</html>

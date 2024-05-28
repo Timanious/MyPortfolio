@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            The Solar System
+        </title>
+        
+        <style> 
+            body
+            {
+                background-color:#00032d;
+            }
+            
+            #main 
+            {
+                border-style:solid;
+                border-left-color:#00ff00;
+                border-top-color:#ff0000;
+                position:fixed;
+                width:50%;
+                height:50%;
+                left:50%;
+                top:50%;
+            }
+        </style>
+        
+        <script defer type="text/javascript">
+        
+            //document.write("Hello world");
+            const radius          = 230;
+            const nrOfObjects     = 8;
+            const speed           = 0.5;
+            const startTime       = new Date().getTime();
+			const divBgColor      = "black";
+            const divWidth        = 150, divHeight = 150;
+            const divPadding      = 10;
+            const divBorderWidth  = 2;
+            const divTotalWidth   = divWidth + (divPadding * 2) + (divBorderWidth * 2);
+			const divTotalHeight  = divHeight + (divPadding * 2) + (divBorderWidth * 2);
+			const divBorderRadius = divTotalWidth/2;
+			const divs = [];
+
+            let time              = 0;
+
+            function Start()
+            {   
+                const sun                   = document.getElementById("sun");
+                sun.style.borderStyle       = "solid";
+                sun.style.borderColor       = "rgba(0,255,255,0.5)";
+                sun.style.borderWidth       = divBorderWidth + "px";
+                sun.style.borderRadius      = divBorderRadius + "px";
+                sun.style.overflow          = "hidden";
+                sun.style.backgroundColor   = divBgColor;
+                sun.style.padding           = divPadding + "px";
+                sun.style.position          = "absolute";
+                sun.style.width             = divWidth + "px";
+                sun.style.height            = divHeight + "px";
+                sun.style.left              = -(divTotalWidth/2) + "px";
+                sun.style.top               = -(divTotalHeight/2) + "px";
+                sun.innerHTML              += "<br><br>Sun";  
+
+                // LerpTest();
+                for (let i = 0; i < nrOfObjects; i++) 
+                {
+                    const angle = i * Math.PI * 2 / nrOfObjects;
+                    const position = new Vector2(Math.cos(angle)* radius,Math.sin(angle)* radius);
+                    divs.push(document.getElementById("div"+i));
+					
+                    divs[i].style.borderStyle       = "solid";
+                    divs[i].style.borderColor       = "rgba(200,0,160,0.5)";
+                    divs[i].style.borderWidth       = divBorderWidth + "px";
+					divs[i].style.borderRadius      = divBorderRadius + "px";
+					divs[i].style.overflow          = "hidden";
+                    divs[i].style.backgroundColor   = divBgColor;
+                    divs[i].style.padding           = divPadding + "px";
+                    divs[i].style.position          = "absolute";
+                    divs[i].style.width             = divWidth + "px";
+                    divs[i].style.height            = divHeight + "px";
+                    divs[i].style.left              = position.x - (divTotalWidth/2) + "px";
+                    divs[i].style.top               = position.y - (divTotalHeight/2) + "px";
+                    //divs[i].innerHTML += "<br><br>Planet "+i;      	
+                }
+				
+				RotateDivs();        
+            }
+
+            function RotateDivs()
+            {
+                for (let i = 0; i < nrOfObjects; i++) 
+                {
+                    let angle = (i * Math.PI * 2 / nrOfObjects);
+                    angle += time/1000 * speed;
+                    const position = new Vector2(Math.cos(angle)* radius,Math.sin(angle)* radius);
+
+                   // console.log(posX);
+                    divs[i].style.left = (position.x - (divTotalWidth/2)) + "px";
+                    divs[i].style.top = (position.y - (divTotalHeight/2)) + "px";             
+                }
+        
+            time = (new Date().getTime() - startTime);
+            }
+
+            setInterval("RotateDivs()",10);
+
+
+            // var fromPosition = new Vector2(0,0);
+            // var toPosition = new Vector2(10,20);
+            
+            // function LerpTest()
+            // {
+            //     while(fromPosition.x < (toPosition.x - 0.05 ))
+            //     {
+            //         fromPosition = Vector2.lerp(fromPosition,toPosition,0.01);
+            //         console.log(fromPosition);
+            //     }
+            //     // for(var x = 0; x<10; x++)
+            //     // {
+            //     //     fromPosition = Vector2.lerp(fromPosition,toPosition,0.01);
+            //     //     console.log(fromPosition);
+            //     // }
+            // }
+			
+			function Vector2 (x,y)
+            {
+                this.x = x; 
+                this.y = y;
+            }
+
+            // Vector2.lerp = function (a, b, t) 
+            // {
+            //         const x = (a.x + t * (b.x - a.x));
+            //         const y = (a.y + t * (b.y - a.y));
+            //         const r = new Vector2(x,y);
+            //         return r;
+            // };
+
+        </script>
+        
+    </head>
+    
+    <body onload="Start()">
+    
+        <div id="main">
+        
+            <div id="sun">
+                <img 
+                src="./Images/Sun.jpg" 
+                width="150" height="150" alt="The Sun"
+                /> 
+            </div>
+        
+            <div id="div0">
+                <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mercury_in_color_-_Prockter07_centered.jpg/484px-Mercury_in_color_-_Prockter07_centered.jpg" 
+                width="150" height="150" alt="Planet Mercury"
+                /> 
+            </div>
+            
+            <div id="div1">
+                <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Venus_from_Mariner_10.jpg/480px-Venus_from_Mariner_10.jpg" 
+                width="150" height="150" alt="Planet Venus" 
+                /> 
+            </div>
+            
+       		<div id="div2">
+                <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/480px-The_Blue_Marble_%28remastered%29.jpg" 
+                width="150" height="150" alt="Planet Earth"
+                /> 
+            </div>
+            
+        	<div id="div3">
+                <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/480px-OSIRIS_Mars_true_color.jpg" 
+                width="150" height="150" alt="Planet Mars"
+                /> 
+            </div>
+            
+       		<div id="div4">
+                <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Jupiter.jpg/480px-Jupiter.jpg" 
+                width="150" height="150" alt="Planet Jupiter"
+                /> 
+            </div>
+            
+        	<div id="div5" style="justify-content: center; display: flex; align-items: center; ">
+                <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/640px-Saturn_during_Equinox.jpg" 
+                width="256" height="124" 
+                alt="Planet Saturn"
+                /> 
+            </div>
+            
+        	<div id="div6">
+                <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Uranus_as_seen_by_NASA%27s_Voyager_2_%28remastered%29.png/480px-Uranus_as_seen_by_NASA%27s_Voyager_2_%28remastered%29.png" 
+                width="150" height="150" alt="Planet Uranus"
+                /> 
+            </div>
+            
+           	<div id="div7">
+                <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Neptune_Full.jpg/1024px-Neptune_Full.jpg" 
+                width="150" height="150" alt="Planet Neptune"
+                /> 
+            </div>
+        
+        </div>
+    
+    </body>
+
+</html>

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>ChartJS Dashboard</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./Styles/Style.css" />                                                         <!-- My own CSS -->
+
+    <!-- Bootstrap JS, Popper.js, and jQuery Scripts-->
+    <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.9/dist/umd/popper.min.js"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Chart.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- My own scripts-->
+    <script defer src="./Scripts/RandomDataChart.js"></script>
+    <script defer src="./Scripts/MicAudioVisualizer.js"></script>
+    <script defer src="./Scripts/Mp3AudioVisualizer.js"></script>
+    <script defer src="./Scripts/Mp3StereoAudioVisualizer.js"></script>
+
+    <script src="https://xemantic.github.io/shader-web-background/dist/shader-web-background.min.js"></script>
+    <script type="x-shader/x-fragment" id="image">
+        precision highp float;
+    
+        uniform float iTime;
+        uniform vec2 iResolution;
+            
+        // Constants
+        #define PI 3.1415925359
+        #define TWO_PI 6.2831852
+        
+        float distLine(vec2 p,vec2 a,vec2 b){
+            vec2 ap=p-a;
+            vec2 ab=b-a;
+            float t=clamp(dot(ap,ab)/dot(ab,ab),0.,1.);
+            return length(ap-ab*t);
+        }
+        
+        float Line(vec2 p,vec2 a,vec2 b){
+            float d=distLine(p,a,b);
+            d=smoothstep(.02,.01,d);
+            float d2=length(a-b);
+            return d*smoothstep(1.5,.6,d2);
+        }
+        
+        float N21(vec2 p){
+            p=fract(p*vec2(234.334,125.64));
+            p+=dot(p,p+25.34);
+            return fract(p.x*p.y);
+        }
+        
+        vec2 N22(vec2 p){
+            float n=N21(p);
+            return vec2(n,N21(p+n));
+        }
+        
+        vec2 getPos(vec2 id,vec2 offs){
+            vec2 n=N22(id+offs)*iTime;
+            
+            return offs+sin(n)*.4;
+        }
+        
+        float layer(vec2 uv)
+        {
+            vec2 id=floor(uv);
+            vec2 fd=fract(uv)-.5;
+            vec2 p[9];
+            p[0]=getPos(id,vec2(-1,-1));
+            p[1]=getPos(id,vec2(0,-1));
+            p[2]=getPos(id,vec2(1,-1));
+            p[3]=getPos(id,vec2(-1,0));
+            p[4]=getPos(id,vec2(0,0));
+            p[5]=getPos(id,vec2(1,0));
+            p[6]=getPos(id,vec2(-1,1));
+            p[7]=getPos(id,vec2(0,1));
+            p[8]=getPos(id,vec2(1,1));
+            float m=0.;
+            for(int i=0;i<9;i++){
+                m+=Line(fd,p[4],p[i]);
+                vec2 j=(p[i]-fd)*15.;
+                float sparkle=1./dot(j,j);
+                m+=sparkle*(sin(iTime*10.+fract(p[i].x)*10.)*.5+.5);
+            }
+            m+=Line(fd,p[1],p[3]);
+            m+=Line(fd,p[1],p[5]);
+            m+=Line(fd,p[7],p[3]);
+            m+=Line(fd,p[7],p[5]);
+            
+            return m;
+        }
+        
+        void main()
+        {
+            vec2 uv=(gl_FragCoord.xy/iResolution.xy)-.5;
+            uv.x*=iResolution.x/iResolution.y;
+            
+            vec3 col=vec3(0.);
+            
+            //uv*=5.;
+            float m=0.;
+            float t=iTime*.1;
+            float Y=uv.y;
+            
+            float s=sin(t);
+            float c=cos(t);
+            mat2 rot=mat2(c,-s,s,c);
+            uv*=rot;
+            
+            for(float i=0.;i<1.;i+=1./4.)
+            {
+                float z=fract(i+t);
+                float size=mix(30.,.5,z);
+                float fade=smoothstep(0.,.6,z)
+                *smoothstep(1.,.8,z);
+                
+                m+=layer(uv*size+i*20.)*fade;
+            }
+            vec3 base=sin(t*5.*vec3(.345,.456,.568))*.4+.6;
+            col=m*base;
+            col-=Y*base;
+            // col = fd.x>0.48||fd.y>0.48?vec3(1,0,0):col;
+            gl_FragColor=vec4(col,1.);
+        }
+    </script>
+    <script>
+        shaderWebBackground.shade({
+        shaders: {
+            image: {
+            uniforms: {
+                iResolution: (gl, loc, ctx) => gl.uniform2f(loc, ctx.width, ctx.height),
+                iTime: (gl, loc) => gl.uniform1f(loc, performance.now() / 1000),
+            }
+            }
+        }
+        });
+    </script>
+    <style>
+        .shader-web-background-fallback {
+        background: url("https://placekitten.com/666/666");
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        }
+    </style>
+
+</head>
+
+<body class="d-flex flex-column h-100">
+    <!-- Header -->
+    <header>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+            <a class="navbar-brand" href="/index.html">
+                ChartJS Dashboard Project
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                >
+                <span class="navbar-toggler-icon"> </span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">
+                            Home 
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <!-- Dropdown Menu for Projects -->
+                    <li class="nav-item dropdown active">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="./MyProjects/index.html"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            MyProjects
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="../TheWallOfShaders/index.html">
+                                TheWallOfShaders
+                            </a>
+                            <a class="dropdown-item active" href="./index.html">
+                                ChartJSDashBoard
+                            </a>
+                            <a class="dropdown-item" href="../OpenGLShaderEditor/index.html">
+                                OpenGLShaderEditor
+                            </a>
+                            <a class="dropdown-item" href="../BootstrapCardTemplates/index.html">
+                                BootstrapCardTemplates
+                            </a>
+                            <!-- Add more project links here -->
+                        </div>
+                    </li>
+                    <!-- End of Dropdown -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Pages/AboutMe.html">AboutMe</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Pages/Services.html">Services</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-shrink-0">
+
+        <!-- Content Area -->
+        <div class="container-fluid mt-2">
+            <div class="row">
+
+                <!-- Card 1 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+
+                        <div class="card-header">
+                            Line Chart
+                        </div>
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Random Data Chart
+                            </h5>
+
+                            <p class="card-text">
+                                A ChartJS Line Chart displaying random data updated every second.
+                            </p>
+
+                            <canvas id="ChartCanvas1"></canvas>
+
+                        </div>
+
+                        <div class="card-footer">
+                            #ChartJS #Random #LineChart
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+                        
+                        <div class="card-header">
+                            Line Chart
+                        </div>
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Microphone Audio Visualizer
+                            </h5>
+
+                            <p class="card-text">
+                                A ChartJS Line Chart Microphone Audio Visualizer Bootstrap Card.
+                            </p>
+
+                            <canvas id="ChartCanvas2"></canvas>
+
+                        </div>
+
+                        <div class="card-footer">
+                            #ChartJS #Mp3 Audio Visualizer #BarChart
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+                        
+                        <div class="card-header">
+                            Bar Chart
+                        </div>
+                        
+                        <div class="card-body">
+                            
+                            <h5 class="card-title">
+                                Mp3 Audio Visualizer
+                            </h5>
+                            
+                            <p class="card-text">
+                                A ChartJS Bar Chart Mp3 Audio Visualizer Bootstrap Card.
+                            </p>
+
+                            <canvas id="ChartCanvas3"></canvas>
+                            
+                            <a href="#" class="btn btn-light w-100" id="ButtonPlay" >
+                                ▶️
+                            </a>
+
+                            
+                        </div>
+
+                        <div class="card-footer">
+                            #ChartJS #Mp3AudioVisualizer #BarChart
+                        </div>
+                    
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-sm-6 col-md-8 col-lg-6 col-xl-6 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+                        
+                        <div class="card-header">
+                            Mp3 Stereo Audio Visualizer Radar Charts
+                        </div>
+                        
+                        <div class="card-body">
+                            
+                            <h5 class="card-title">
+                                Mp3 Stereo Audio Visualizer Radar Charts
+                            </h5>
+                            
+                            <p class="card-text">
+                                Mp3 Stereo Audio Visualizer Radar Charts.
+                            </p>
+                            
+                            <div class="row mb-2">
+                                <div class="col-sm-6 col-md-6">
+                                    <canvas class="w-100 h-100" id="ChartCanvas4Left"></canvas>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <canvas class="w-100 h-100" id="ChartCanvas4Right"></canvas>
+                                </div>
+                            </div>
+
+                            <a href="#" class="btn btn-light w-100" id="ButtonPlay2" >
+                                ▶️
+                            </a>
+                            
+                        </div>
+                        
+                        <div class="card-footer">
+                            #ChartJS #Mp3AudioVisualizer #BarChart
+                        </div>
+                    
+                    </div>
+                </div>
+
+
+                <!-- Card 5 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+
+                        <div class="card-header">
+                            Card 4 Header
+                        </div>
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Card 4 Title
+                            </h5>
+
+                            <p class="card-text">
+                                A Bootstrap Card with the text aligned to the center.
+                            </p>
+
+                            <a href="index.html" class="btn btn-light">
+                                Button
+                            </a>
+
+                        </div>
+
+                        <div class="card-footer">
+                            🦶 Footer
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+
+                        <div class="card-header">
+                            Card 5 Header
+                        </div>
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Card 5 Title
+                            </h5>
+
+                            <p class="card-text">
+                                A double wide Bootstrap Card using 8 out of 12 Bootstrap Grid columns instead of 4 
+                            </p>
+                            
+                        </div>
+                        
+                        <div class="card-footer">
+                            <a href="index.html" class="btn btn-light">
+                                Button
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+
+                        <div class="card-header">
+                            Card 6 Header
+                        </div>
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Card 6 Title
+                            </h5>
+
+                            <p class="card-text">
+                                A Triple wide Bootstrap Card using 12 out of 12 Bootstrap Grid columns 
+                            </p>
+                            
+                        </div>
+                        
+                        <div class="card-footer">
+
+                            <a href="index.html" class="btn btn-light">
+                                Button
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+                        <div class="card-header">
+                            Card 8 Header
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Card 8 Title
+                            </h5>
+
+                            <p class="card-text">
+                                Bootstrap Card 8, 9 and 10 are using nested rows so that two wide cards can sit next to one tall card.
+                            </p>
+
+                            <p class="card-text">
+                                This makes for a nice compact way to display multiple cards with variable widths!
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="index.html" class="btn btn-light">
+                                Button
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 mb-2 px-1">
+                    <div class="row-md-6 mb-2">
+                    <!-- Card 9 -->
+                    <div class="card text-white bg-dark text-center">
+                            <div class="card-header">
+                                Card 9 Header
+                            </div>
+    
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Card 9 Title
+                                </h5>
+    
+                                <p class="card-text">
+                                    Card 9 and 10 are sitting together in one column but each in their own row. 
+                                </p>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <a href="index.html" class="btn btn-light">
+                                    Button
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-md-6 mb-2">
+                    <!-- Card 10 -->
+                    <div class="card text-white bg-dark text-center">
+                            <div class="card-header">
+                                Card 10 Header
+                            </div>
+    
+                            <div class="card-body">
+    
+                                <h5 class="card-title">
+                                    Card 10 Title
+                                </h5>
+    
+                                <p class="card-text">
+                                    A Cool Dashboard showing lots & lots of data in a spectaculair way.
+                                </p>
+    
+                            </div>
+    
+                            <div class="card-footer">
+                                <a href="index.html" class="btn btn-light">
+                                    Button
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Card 11 -->
+                <div class="col-md-6 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="true" href="./Pages/ChartJSDashboard1.html">
+                                        Active
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./Pages/ChartJSDashboard2.html">
+                                        Link
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" aria-disabled="true" href="./Pages/ChartJSDashboard3.html">
+                                        Disabled
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Card 10 Title
+                            </h5>
+
+                            <p class="card-text">
+                                A Bootstrap Card with a Navigation menu in the header using Card Header Tabs.
+                                The fist tab is marked as active and the third as disabled.
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="index.html" class="btn btn-light">
+                                Button
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 12 -->
+                <div class="col-md-6 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills">
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="true" href="./Pages/ChartJSDashboard1.html">
+                                        Active
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./Pages/ChartJSDashboard2.html">
+                                        Link
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" aria-disabled="true" href="./Pages/ChartJSDashboard3.html">
+                                        Disabled
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Card 11 Title
+                            </h5>
+
+                            <p class="card-text">
+                                A Bootstrap Card with a Navigation menu in the header using Card Header Pills.
+                                The fist Pill is marked as active and the third as disabled.
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="index.html" class="btn btn-light">
+                                Button
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 13 -->
+                <div class="col-md-4 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+
+                        <img src="./Images/SwimmingPoolTiles.png" class="card-img-top" alt="...">
+                        
+                        <div class="card-header">
+                            Card 12 Header
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Card 12 Title
+                            </h5>
+
+                            <p class="card-text">
+                                Similar to headers and footers, cards can include top and bottom “image caps”—images at the top or bottom of a card.
+                            </p>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <a href="index.html" class="btn btn-light">
+                                Button
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Card 14 -->
+                <div class="col-md-4 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+
+                        <div class="card-header">
+                            Card 13 Header
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Card 13 Title
+                            </h5>
+                            
+                            <p class="card-text">
+                                The same as Card 12 but with the Image Cap at the bottom of the card.
+                            </p>
+                        </div>
+
+                        
+                        <div class="card-footer">
+                            <a href="index.html" class="btn btn-light">
+                                Button
+                            </a>
+                        </div>
+                        <img src="./Images/SwimmingPoolTiles.png" class="card-img-bottom" alt="...">
+
+                    </div>
+                </div>
+
+                <!-- Card 15 -->
+                <div class="col-md-6 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+
+                        <img src="./Images/SwimmingPoolTiles.png" class="card-img" alt="...">
+                        
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Card 15 title</h5>
+                            <h5><strong>Image overlays</strong></h5> 
+                            <p class="card-text">
+                                Turn an image into a card background and overlay your card’s text with the Image Overlay. Depending on the image, you may or may not need additional styles or utilities.
+                            </p>
+                            <p class="card-text">
+                                <small>
+                                    Last updated 3 mins ago
+                                </small>  
+                            </p>
+                            <a href="index.html" class="btn btn-light">
+                                Button
+                            </a>
+                        </div>
+                
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </main>
+
+    <!-- 
+        Footer
+        mt-auto = margin top is set to auto. This pushes down the element 
+        vertically to stick to the bottom of its container. 
+
+        py-3 = padding on the y-axis (both top and bottom) is set to scale 3. 
+        Which is a size scale in Bootstrap. 
+    -->
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+        <div class="container">
+            <span class="text-body-secondary">© 2024 The Symbol Factory </span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+

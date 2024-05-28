@@ -1,0 +1,120 @@
+/* body, html 
+{
+    height: 100%;
+    margin: 0;
+} */
+
+/* #content-area 
+{
+    overflow-y: scroll;
+} */
+
+.navbar, 
+.footer 
+{
+    background-color: #bd93f9;
+}
+
+
+.shader-cards-body 
+{
+    background-image: url("../Textures/Bricks2.png");
+    background-size: 1024px;
+}
+
+.shader-card 
+{
+    
+    width: 63mm;
+    height: 88mm;
+    
+    /* margin: 0 auto; */
+    
+    padding: 3mm;
+    
+    border-radius: 6px;
+    
+    background-color: #000000;
+}
+
+.shader-card:hover 
+{
+    box-shadow: 10px 10px 20px;
+}
+
+.shader-card-body 
+{
+    /* padding-top: 0mm; */
+    /* padding-bottom: 0mm; */
+    padding-left: 4mm;
+    padding-right: 4mm;
+    background-color: rgb(48, 108, 220);
+}
+
+.shader-card-title 
+{
+    height: 6mm;
+    margin: 0;
+    background-color: rgba(174, 219, 249, 0.445);
+}
+
+.shader-canvas 
+{
+    width: 49mm;
+    height: 49mm;
+    padding-top: 0px;
+}
+
+.shader-card-subtitle 
+{
+    height: 6mm;
+    background-color: rgba(174, 219, 249, 0.445);
+}
+
+.shader-card-text 
+{
+    margin-bottom: 0px;
+    height: 15mm;
+
+    font-size: x-small;
+
+    background-color: rgb(174, 219, 249);
+}
+
+.shader-card-btn 
+{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-size: small;
+}
+
+.shader-card-footer 
+{
+    background-color: rgba(174, 219, 249, 0.445);
+}
+
+/* Ensure the cards don't scale with the browser window */
+@media screen and (max-width: 767px) 
+{
+    .shader-card 
+    {
+        width: 63mm;
+        height: 88mm;
+    }
+}
+
+#shaderInput1 
+{
+    /* resize: vertical;  */
+    background-color: rgb(101, 243, 198);
+}
+
+.shader-card-textarea
+{
+    margin-bottom: 0px;
+    height: 15mm;
+    width: 49mm;
+
+    font-size: x-small;
+}

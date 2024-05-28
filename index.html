@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!-- The h-100 class is necessary to make the footer stick to the bottom. -->
+<html lang="en" class="h-100"> 
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>The Symbol Factory</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- My own CSS -->
+    <link rel="stylesheet" href="./Styles/Style.css" />                                                         
+
+    <!-- Bootstrap JS, Popper.js, and jQuery Scripts-->
+    <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.9/dist/umd/popper.min.js"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</head>
+
+<body class="d-flex flex-column h-100">
+    
+    <!-- Header -->
+    <header>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark">
+
+            <a class="navbar-brand" href="/index.html">
+                🏭The &lt;Symbol&gt; Factory
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                >
+                <span class="navbar-toggler-icon"> </span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.html">
+                            Home 
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <!-- Dropdown Menu for Projects -->
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="./MyProjects/index.html"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            MyProjects
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="./MyProjects/TheWallOfShaders/">
+                                🧱TheWallOfShaders
+                            </a>
+                            <a class="dropdown-item" href="./MyProjects/ChartJSDashboard/">
+                                📈ChartJSDashBoard
+                            </a>
+                            <a class="dropdown-item" href="./MyProjects/OpenGLShaderEditor/">
+                                ✨OpenGLShaderEditor
+                            </a>
+                            <a class="dropdown-item bi bi-bootstrap" href="./MyProjects/BootstrapCards/">
+                                 BootstrapCards
+                            </a>
+                            <!-- Add more project links here -->
+                        </div>
+                    </li>
+                    <!-- End of Dropdown -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Pages/AboutMe.html">
+                            AboutMe
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Pages/Services.html">
+                            Services
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-shrink-0" >
+    <!-- Content Area -->
+        <div class="container mt-2">
+            <div class="row">
+
+                <!-- Card for Project Page -->
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card">
+                        
+                        <div class="card-header">
+                            Project
+                        </div>
+                        
+                        <div class="card-body">
+                            
+                            <h5 class="card-title">
+                                🧱The Wall Of Shaders                            
+                            </h5>
+
+                            <p class="card-text">
+                                A Glorious wall filled with Amazing OpenGL GLSL Fragment Shaders for Your eyes to Feast upon Dearly my Love.
+                            </p>
+                            
+                            <a href="./MyProjects/TheWallOfShaders/" class="btn btn-light">
+                                The Wall Of Shaders 
+                            </a>
+                            
+                        </div>
+
+                        <div class="card-footer">
+                            #OpenGL #WebGL #Shaders
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Card for Project Page -->
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card">
+                        
+                        <div class="card-header">
+                            JavaScript ChartJS Project
+                        </div>
+                        
+                        <div class="card-body">
+                            
+                            <h5 class="card-title">
+                                📈ChartJS Dashboard                            
+                            </h5>
+
+                            <p class="card-text">
+                                A Sci-Fi Themed Ultra Hyper Mega Awesome Intelligent & Cool Dashboard Showcasing Super interesting Charts made with ChartJS, P5 and WebGL.
+                            </p>
+                            
+                            <a href="./MyProjects/ChartJSDashboard/" class="btn btn-light">
+                                ChartJS Dashboard 
+                            </a>
+                            
+                        </div>
+
+                        <div class="card-footer">
+                            #ChartJS #JavaScript #Charts
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Card for Project Page -->
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card">
+                        
+                        <div class="card-header">
+                            WebGL Project
+                        </div>
+                        
+                        <div class="card-body">
+                            
+                            <h5 class="card-title">
+                                ✨OpenGL Shader Editor                            
+                            </h5>
+
+                            <p class="card-text">
+                                An OpenGL GLSL Fragment Shader Editor allowing You to Try and Create Super Artistic and Authentic CG Graphics drawn Directly and Hyperefficiently on Your GPU using the OpenGL GLSL Shading Language.
+                            </p>
+                            
+                            <a href="./MyProjects/OpenGLShaderEditor/" class="btn btn-light">
+                                OpenGL Shader Editor
+                            </a>
+                            
+                        </div>
+
+                        <div class="card-footer">
+                            #OpenGL #Shaders #GLSL
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Card for Project Page -->
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card">
+                        
+                        <div class="card-header">
+                            Bootstrap CSS Project
+                        </div>
+                        
+                        <div class="card-body">
+                            
+                            <h5 class="card-title bi-bootstrap">
+                                Bootstrap Cards                            
+                            </h5>
+
+                            <p class="card-text">
+                                A Super Useful page dipslaying Bootstrap Cards from simple to less simple. May or Might serve you or monstly me as a Handy little Reference. 
+                            </p>
+                            
+                            <a href="./MyProjects/BootstrapCards/" class="btn btn-light">
+                                Bootstrap Cards
+                            </a>
+                            
+                        </div>
+
+                        <div class="card-footer">
+                            #Bootstrap #CSS #Cards
+                        </div>
+
+                    </div>
+                </div>
+
+                    <!-- Card for Project Page -->
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                        <div class="card">
+                            
+                            <div class="card-header">
+                                Unity Project
+                            </div>
+                            
+                            <div class="card-body">
+                                
+                                <h5 class="card-title">
+                                    🐶CuboidDog WebGL                           
+                                </h5>
+    
+                                <p class="card-text">
+                                     A Unity WebGL version of CuboidDog. Control every Limb of a highly Cubistic and Unity Physics Joints based k9 individually by the power of UI Sliders!
+                                     Can YOU make the CuboidDog do some Backflips??  
+                                </p>
+                                
+                                <a href="./MyProjects/CuboidDog/" class="btn btn-light">
+                                    CuboidDog
+                                </a>
+                                
+                            </div>
+    
+                            <div class="card-footer">
+                                #Unity #WebGL #PhysicsJoints #UISliders
+                            </div>
+    
+                        </div>
+                    </div>
+
+                    <!-- Card for Project Page -->
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                        <div class="card">
+                            
+                            <div class="card-header">
+                                Unity Project
+                            </div>
+                            
+                            <div class="card-body">
+                                
+                                <h5 class="card-title">
+                                    🌌SolarSystem                            
+                                </h5>
+    
+                                <p class="card-text">
+                                        A Unity WebGL version of SolarSystem. A Unity project demonstrating the use of World Space UI Canvasses, Lerps & Slerps, Trail Renderer Components, and seperated x- and y-axis rotations by the use of Parenting. 
+                                </p>
+                                
+                                <a href="./MyProjects/CuboidDog/" class="btn btn-light">
+                                    SolarSystem
+                                </a>
+                                
+                            </div>
+    
+                            <div class="card-footer">
+                                #Unity #WebGL #PhysicsJoints #UISliders
+                            </div>
+    
+                        </div>
+                    </div>
+
+                    <!-- Card for Project Page -->
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                        <div class="card">
+                            
+                            <div class="card-header">
+                                Unity Project
+                            </div>
+                            
+                            <div class="card-body">
+                                
+                                <h5 class="card-title">
+                                    Rotating <strong>&lt;div&gt;</strong>s                        
+                                </h5>
+    
+                                <p class="card-text">
+                                        A Unity WebGL version of SolarSystem. A Unity project demonstrating the use of World Space UI Canvasses, Lerps & Slerps, Trail Renderer Components, and seperated x- and y-axis rotations by the use of Parenting. 
+                                </p>
+                                
+                                <a href="./MyProjects/RotatingDivs/" class="btn btn-light">
+                                    Rotating <strong>&lt;div&gt;</strong>s
+                                </a>
+                                
+                            </div>
+    
+                            <div class="card-footer">
+                                #HTML #JavaScript 
+                            </div>
+    
+                        </div>
+                    </div>
+                                
+                <!-- Card for Projects Page -->
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Projects</h5>
+                            <p class="card-text">
+                                Explore the projects I've worked on and contributed to.
+                            </p>
+                            <a href="./MyProjects/" class="btn btn-light">
+                                View Projects
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card for About Me Page -->
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">About Me</h5>
+                            <p class="card-text">
+                                Learn more about my journey and expertise in software development.
+                            </p>
+                            <a href="./Pages/AboutMe.html" class="btn btn-light">
+                                About Me
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card for Services Page -->
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Services</h5>
+                            <p class="card-text">
+                                Find out about the services I offer and how I can help you with your software needs.
+                            </p>
+                            <a href="./Pages/Services.html" class="btn btn-light">
+                                Our Services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+            
+            </div>
+        </div>
+    </main>
+
+    <!-- 
+        Footer
+        mt-auto = margin top is set to auto. This pushes down the element 
+        vertically to stick to the bottom of its container. 
+
+        py-3 = padding on the y-axis (both top and bottom) is set to scale 3. 
+        Which is a size scale in Bootstrap. 
+    -->
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+        <div class="container">
+            <span class="text-body-secondary">© 2024 The Symbol Factory </span>
+        </div>
+    </footer>
+
+</body>
+</html>

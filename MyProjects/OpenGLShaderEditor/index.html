@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!-- The h-100 class is necessary to make the footer stick to the bottom. -->
+<html lang="en" class="h-100"> 
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>The Symbol Factory</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>    <!-- Bootstrap CSS -->
+    
+    <!-- My own CSS -->
+    <link rel="stylesheet" href="./Styles/Style.css" />                                                         
+
+    <!-- Bootstrap JS, Popper.js, and jQuery Scripts-->
+    <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.9/dist/umd/popper.min.js"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script defer src="./Scripts/OpenGLShaderEditor.js"></script>
+
+</head>
+
+<body class="body d-flex flex-column h-100">
+    
+    <!-- Header -->
+    <header>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark">
+
+            <a class="navbar-brand" href="/index.html">
+                The Symbol Factory
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                >
+                <span class="navbar-toggler-icon"> </span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">
+                            Home 
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <!-- Dropdown Menu for Projects -->
+                    <li class="nav-item dropdown active">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="./MyProjects/index.html"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            MyProjects
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="../TheWallOfShaders/">
+                                TheWallOfShaders
+                            </a>
+                            <a class="dropdown-item" href="../ChartJSDashboard/">
+                                ChartJSDashBoard
+                            </a>
+                            <a class="dropdown-item active" href="../OpenGLShaderEditor/">
+                                OpenGLShaderEditor
+                            </a>
+                            <a class="dropdown-item" href="../BootstrapCardTemplates/">
+                                BootstrapCardTemplates
+                            </a>
+                            <!-- Add more project links here -->
+                        </div>
+                    </li>
+                    <!-- End of Dropdown -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Pages/AboutMe.html">
+                            AboutMe
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Pages/Services.html">
+                            Services
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-shrink-0">
+    <!-- Content Area -->
+        <div class="container-fluid mt-2">
+            <div class="row">
+
+                <!-- Shader EditorCard -->
+                <div class=" col-md-12">
+                    <div class="card shader-editor-card">
+                        <div class="card-body shader-editor-card-body">
+                            
+                            <h6 class="shader-editor-card-title">
+                                GLSL Shader Editor Card
+                            </h6>
+
+                            <canvas class="col-md-12 shader-editor-card-canvas"  id="glCanvas7" ></canvas>
+                        
+                            
+                            <h6 class="shader-editor-card-subtitle">
+                                Hello Shader!
+                            </h6>
+
+                            <div class="rightupper">
+                                <div class="text form-group">
+                                    <textarea  class="form-control shader-editor-card-textarea" spellcheck="false" title="OpenGLShaderEditor" rows="20" id="shaderInput1">
+precision highp float;
+
+varying highp vec2 vTextureCoord;
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+void main() 
+{
+    vec2 uv = gl_FragCoord.xy/u_resolution;
+
+    gl_FragColor = vec4(uv.x, uv.y, sin(u_time)*0.5+0.5, 1.0);
+}
+                                    </textarea>
+                                </div>
+                            </div>
+                            
+                            <button id="shaderButton1" class="btn btn-light">
+                                Compile Shader
+                            </button>
+                        </div>
+                        
+                        <div class="shader-editor-card-footer">
+                            <p>by Tim Coster 2024</p>
+                        </div>
+                
+                    </div>
+                </div>
+                
+            
+            </div>
+        </div>
+    </main>
+
+    <!-- 
+        Footer
+        mt-auto = margin top is set to auto. This pushes down the element 
+        vertically to stick to the bottom of its container. 
+
+        py-3 = padding on the y-axis (both top and bottom) is set to scale 3. 
+        Which is a size scale in Bootstrap. 
+    -->
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+        <div class="container">
+            <span class="text-body-secondary">© 2024 The Symbol Factory </span>
+        </div>
+    </footer>
+
+</body>
+</html>
