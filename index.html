@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-
     <!-- My own CSS -->
     <link rel="stylesheet" href="./Styles/Style.css" />                                                         
 
@@ -28,21 +27,22 @@
     
     <!-- Header -->
     <header>
+
         <!-- Navigation -->
         <nav class="navbar navbar-expand-md navbar-dark">
 
             <a class="navbar-brand" href="/index.html">
-                🏭The &lt;Symbol&gt; Factory
+                🏭The <strong>&lt;Symbol&gt;</strong> Factory
             </a>
 
             <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+                class           ="navbar-toggler"
+                type            ="button"
+                data-toggle     ="collapse"
+                data-target     ="#navbarNav"
+                aria-controls   ="navbarNav"
+                aria-expanded   ="false"
+                aria-label      ="Toggle navigation"
                 >
                 <span class="navbar-toggler-icon"> </span>
             </button>
@@ -60,31 +60,48 @@
                     <!-- Dropdown Menu for Projects -->
                     <li class="nav-item dropdown">
                         <a
-                            class="nav-link dropdown-toggle"
-                            href="./MyProjects/index.html"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
+                            class         ="nav-link dropdown-toggle"
+                            href          ="./MyProjects"
+                            id            ="navbarDropdownMenuLink"
+                            role          ="button"
+                            data-toggle   ="dropdown"
+                            aria-haspopup ="true"
+                            aria-expanded ="false"
                         >
                             MyProjects
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
                             <a class="dropdown-item" href="./MyProjects/TheWallOfShaders/">
                                 🧱TheWallOfShaders
                             </a>
+
                             <a class="dropdown-item" href="./MyProjects/ChartJSDashboard/">
                                 📈ChartJSDashBoard
                             </a>
+
                             <a class="dropdown-item" href="./MyProjects/OpenGLShaderEditor/">
                                 ✨OpenGLShaderEditor
                             </a>
+
                             <a class="dropdown-item bi bi-bootstrap" href="./MyProjects/BootstrapCards/">
-                                 BootstrapCards
+                                BootstrapCards
                             </a>
-                            <!-- Add more project links here -->
+
+                            <a class="dropdown-item" href="./MyProjects/CuboidDog/">
+                                🐶CuboidDog Unity WebGL
+                            </a>
+                           
+                            <a class="dropdown-item" href="./MyProjects/SolarSystem/">
+                                🌌SolarSystem Unity WebGL
+                            </a>
+
+                            <a class="dropdown-item" href="./MyProjects/RotatingDivs/">
+                                🛞Rotating <strong>&lt;div&gt;</strong>s
+                            </a>
+
+                            <!-- Add more project links above -->
                         </div>
                     </li>
                     <!-- End of Dropdown -->
@@ -116,7 +133,7 @@
                     <div class="card">
                         
                         <div class="card-header">
-                            Project
+                            WebGL + GLSL
                         </div>
                         
                         <div class="card-body">
@@ -130,7 +147,7 @@
                             </p>
                             
                             <a href="./MyProjects/TheWallOfShaders/" class="btn btn-light">
-                                The Wall Of Shaders 
+                                🧱The Wall Of Shaders 
                             </a>
                             
                         </div>
@@ -178,7 +195,7 @@
                     <div class="card">
                         
                         <div class="card-header">
-                            WebGL Project
+                            WebGL + GLSL
                         </div>
                         
                         <div class="card-body">
@@ -222,7 +239,7 @@
                                 A Super Useful page dipslaying Bootstrap Cards from simple to less simple. May or Might serve you or monstly me as a Handy little Reference. 
                             </p>
                             
-                            <a href="./MyProjects/BootstrapCards/" class="btn btn-light">
+                            <a href="./MyProjects/BootstrapCards/" class="btn btn-light bi-bootstrap">
                                 Bootstrap Cards
                             </a>
                             
@@ -303,21 +320,21 @@
                         <div class="card">
                             
                             <div class="card-header">
-                                Unity Project
+                                HTML + JavaScript
                             </div>
                             
                             <div class="card-body">
                                 
                                 <h5 class="card-title">
-                                    Rotating <strong>&lt;div&gt;</strong>s                        
+                                    🛞Rotating <strong>&lt;div&gt;</strong>s                        
                                 </h5>
     
                                 <p class="card-text">
-                                        A Unity WebGL version of SolarSystem. A Unity project demonstrating the use of World Space UI Canvasses, Lerps & Slerps, Trail Renderer Components, and seperated x- and y-axis rotations by the use of Parenting. 
+                                    A basic Webpage Example demonstrating how <strong>&lt;div&gt;s</strong> can be rotated around Eternally (until puter crash) and how HTML can be injected meticulously into an Unsuspecting index with the power of JavaScript.
                                 </p>
                                 
                                 <a href="./MyProjects/RotatingDivs/" class="btn btn-light">
-                                    Rotating <strong>&lt;div&gt;</strong>s
+                                    🛞Rotating <strong>&lt;div&gt;</strong>s
                                 </a>
                                 
                             </div>
@@ -333,12 +350,12 @@
                 <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Projects</h5>
+                            <h5 class="card-title">MyProjects</h5>
                             <p class="card-text">
                                 Explore the projects I've worked on and contributed to.
                             </p>
                             <a href="./MyProjects/" class="btn btn-light">
-                                View Projects
+                                MyProjects
                             </a>
                         </div>
                     </div>
@@ -374,7 +391,6 @@
                     </div>
                 </div>
                 
-            
             </div>
         </div>
     </main>
