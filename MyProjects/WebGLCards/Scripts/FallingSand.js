@@ -4,23 +4,24 @@ let cols, rows;
 
 function setup()
 {
+    // var canvas = document.getElementById("Canvas1");
     var canvas = createCanvas(400, 400);
-    canvas.parent("CanvasP5");
+    canvas.parent("CanvasContainer1");
 
     cols = width / w;
     rows = height / w;
     grid = Make2DArray(cols, rows);
     
     for(let i=0; i<cols; i++)
+    {
+        for(let j=0; j<rows; j++)
         {
-            for(let j=0; j<rows; j++)
-                {
-                    grid[i][j] = 0;
-                }
-            }
-            
-            grid[20][0] = 1; // Color one cell of the grid white
+            grid[i][j] = 0;
         }
+    }
+            
+    grid[20][0] = 1; // Color one cell of the grid white
+}
         
 function draw()
 {
