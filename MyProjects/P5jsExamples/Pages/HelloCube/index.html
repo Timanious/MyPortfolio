@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>WebGL Cards</title>
+    <title>🧊Hello Cube!</title>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
@@ -38,7 +38,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
             <a class="navbar-brand" href="/index.html">
-                🧊WebGL Cards
+                🧊Hello Cube!
             </a>
 
             <button
@@ -64,7 +64,7 @@
                     </li>
 
                     <!-- Dropdown Menu for Projects -->
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown">
                         <a
                             class="nav-link dropdown-toggle"
                             href="./index.html"
@@ -78,31 +78,63 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="../TheWallOfShaders/">
+                            <a class="dropdown-item" href="/MyProjects/TheWallOfShaders/">
                                 🧱TheWallOfShaders
                             </a>
                             <a class="dropdown-item active" href="./index.html">
                                 📈ChartJSDashBoard
                             </a>
-                            <a class="dropdown-item" href="../OpenGLShaderEditor/">
+                            <a class="dropdown-item" href="/MyProjects//OpenGLShaderEditor/">
                                 ✨OpenGLShaderEditor
                             </a>
-                            <a class="dropdown-item bi bi-bootstrap" href="../BootstrapCards/">
+                            <a class="dropdown-item bi bi-bootstrap" href="/MyProjects/BootstrapCards/">
                                 BootstrapCards
                             </a>
-                            <a class="dropdown-item" href="../CuboidDog/">
+                            <a class="dropdown-item" href="/MyProjects/CuboidDog/">
                                 🐶CuboidDog Unity WebGL
                             </a>
-                            <a class="dropdown-item" href="../SolarSystem/">
+                            <a class="dropdown-item" href="/MyProjects/SolarSystem/">
                                 🌌SolarSystem Unity WebGL
                             </a>
-                            <a class="dropdown-item" href="../RotatingDivs/">
+                            <a class="dropdown-item" href="/MyProjects/RotatingDivs/">
                                 🛞Rotating <strong>&lt;div&gt;</strong>s
+                            </a>
+                            <a class="dropdown-item" href="/MyProjects/P5jsExamples/">
+                                🎨P5js Examples
                             </a>
                             <!-- Add more project links above here -->
                         </div>
                     </li>
                     <!-- End of Dropdown -->
+
+                    <!-- Dropdown Menu for Example Pages -->
+                    <li class="nav-item dropdown active">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="./index.html"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            Examples
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item active" href="./index.html">
+                                🧊HelloCube
+                            </a>
+                            <!-- Add more project links above here -->
+                        </div>
+                    </li>
+                    <!-- End of Dropdown -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Timanious/MyPortfolio" target="_blank" rel="noopener noreferrer">
+                            GitHub
+                        </a>
+                    </li>
                     
                     <li class="nav-item">
                         <a class="nav-link" href="/Pages/AboutMe.html">
@@ -127,27 +159,46 @@
             <div class="row">
 
                 <!-- Card 1 -->
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
                     <div class="card text-white bg-dark text-center">
 
                         <div class="card-header">
-                            Hello Cube!
+                            🧊Hello Cube!
                         </div>
 
                         <div class="card-body">
 
                             <h5 class="card-title">
-                                Hello Cube!
+                                🧊Hello Cube!
                             </h5>
 
                             <p class="card-text">
-                                A P5js + WebGL Canvas Displaying a Basic 3D Unit Cube Rotating Freely.
+                                A <a href="https://p5js.org/" target="_blank" rel="noopener noreferrer">P5js</a> + WebGL Canvas Displaying a Basic 3D Cube Rotating Freely.</br>
+                                See the official P5js examples page for more information on how to create different types of 3D objects and for many other cool examples:</br>
+                                <a href="https://p5js.org/examples/" target="_blank" rel="noopener noreferrer">https://p5js.org/examples/</a>
                             </p>
 
+                        </div>
+
+                        <div class="card-footer">
+                            #WebGL #P5js #3D
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+
+                        <div class="card-header">
+                            🧊Hello Cube!
+                        </div>
+
+                        <div class="card-body">
                             <div id="CanvasContainer">
                                 <!-- Canvas will be insterted by the P5js script over here-->
                             </div>
-
                         </div>
 
                         <div class="card-footer">
@@ -201,13 +252,12 @@
         py-3 = padding on the y-axis (both top and bottom) is set to scale 3. 
         Which is a size scale in Bootstrap. 
     -->
-    <footer class="footer mt-auto py-3 bg-body-tertiary">
+    <footer class="footer mt-auto py-3 bg-dark">
         <div class="container">
-            <span class="text-body-secondary">© 2024 The Symbol Factory </span>
+            <span class="text-light">© 2024 🏭The <strong> &lt;Symbol&gt;</strong> Factory </span>
         </div>
     </footer>
 
 </body>
 
 </html>
-

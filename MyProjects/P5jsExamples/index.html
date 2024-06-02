@@ -25,13 +25,14 @@
     <script defer src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
 
     <!-- My own scripts-->
-    <script defer src="Scripts/RotatingCube.js"></script>
-    <script defer src="Scripts/RotatingCube2.js"></script>
+    <script defer src="Scripts/Sketch1.js"></script>
+    <script defer src="Scripts/Sketch2.js"></script>
+    <script defer src="Scripts/P5jsCanvasManager.js"></script>
 
     
 </head>
 
-<body class="d-flex flex-column h-100" style="background-color: rgb(241, 163, 68);">
+<body class="d-flex flex-column h-100">
     <!-- Header -->
     <header>
         <!-- Navigation -->
@@ -81,7 +82,7 @@
                             <a class="dropdown-item" href="../TheWallOfShaders/">
                                 🧱TheWallOfShaders
                             </a>
-                            <a class="dropdown-item active" href="./index.html">
+                            <a class="dropdown-item" href="./index.html">
                                 📈ChartJSDashBoard
                             </a>
                             <a class="dropdown-item" href="../OpenGLShaderEditor/">
@@ -99,7 +100,7 @@
                             <a class="dropdown-item" href="../RotatingDivs/">
                                 🛞Rotating <strong>&lt;div&gt;</strong>s
                             </a>
-                            <a class="dropdown-item" href="../P5jsExamples/">
+                            <a class="dropdown-item active" href="./index.html">
                                 🎨P5js Examples
                             </a>
                             <!-- Add more project links above here -->
@@ -108,7 +109,7 @@
                     <!-- End of Dropdown -->
 
                     <!-- Dropdown Menu for Example Pages -->
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown">
                         <a
                             class="nav-link dropdown-toggle"
                             href="./index.html"
@@ -129,6 +130,12 @@
                         </div>
                     </li>
                     <!-- End of Dropdown -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Timanious/MyPortfolio" target="_blank" rel="noopener noreferrer">
+                            GitHub
+                        </a>
+                    </li>
                     
                     <li class="nav-item">
                         <a class="nav-link" href="/Pages/AboutMe.html">
@@ -150,29 +157,70 @@
     <main class="flex-shrink-0">
         <!-- Content Area -->
         <div class="container mt-2">
+
+            <!-- Row 1 -->
             <div class="row">
 
                 <!-- Card 1 -->
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
-                    <div class="card text-white bg-dark text-center">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-2 px-1">
+                    <div class="card text-white text-center">
 
                         <div class="card-header">
-                            Hello Cube!
+                            🎨P5js Examples
                         </div>
 
                         <div class="card-body">
 
                             <h5 class="card-title">
-                                Hello Cube!
+                                Introduction
+                            </h5>
+
+                            <p class="card-text">
+                                On this page you can find a bunch of examples of the P5js JavaScript Library.
+                                Click on the button below to go to the official P5js Documentation.
+                            </p>
+                            <a class="btn btn-light" href="https://p5js.org/" target="_blank" rel="noopener noreferrer">
+                                <img src="./Icons/P5js-Icon.ico" alt="P5js JavaScript library icon image" style="width: 1em;"> P5js
+                            </a>
+
+                        </div>
+
+                        <div class="card-footer">
+                            #P5js #JavaScript #CG
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="row">
+
+                <!-- Card 2 -->
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                    <div class="card text-white text-center">
+
+                        <div class="card-header">
+                            🧊Hello Cube!
+                        </div>
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                🧊Hello Cube!
                             </h5>
 
                             <p class="card-text">
                                 A P5js + WebGL Canvas Displaying a Basic 3D Unit Cube Rotating Freely.
                             </p>
 
-                            <div id="CanvasContainer">
+                            <div id="CanvasContainer1">
                                 <!-- Canvas will be insterted by the P5js script over here-->
                             </div>
+
+                            <a href="./Pages/HelloCube/" class="btn btn-light">
+                                🧊Hello Cube! 
+                            </a>
 
                         </div>
 
@@ -183,36 +231,40 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <!-- <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2 px-1"> -->
-                    <!-- <div class="card text-white bg-dark text-center"> -->
+                <!-- Card 3 -->
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                    <div class="card text-white text-center">
 
-                        <!-- <div class="card-header"> -->
-                            <!-- Hello Cube2! -->
-                        <!-- </div> -->
+                        <div class="card-header">
+                            👞Shoe
+                        </div>
 
-                        <!-- <div class="card-body"> -->
+                        <div class="card-body">
 
-                            <!-- <h5 class="card-title"> -->
-                                <!-- Hello Cube! -->
-                            <!-- </h5> -->
+                            <h5 class="card-title">
+                                👞Shoe
+                            </h5>
 
-                            <!-- <p class="card-text"> -->
-                                <!-- A P5js + WebGL Canvas Displaying a Basic 3D Unit Cube Rotating Freely. -->
-                            <!-- </p> -->
+                            <p class="card-text">
+                                A Shoe.
+                            </p>
 
-                            <!-- <div id="CanvasContainer2"> -->
+                            <div id="CanvasContainer2">
                                 <!-- Canvas will be insterted by the P5js script over here-->
-                            <!-- </div> -->
+                            </div>
 
-                        <!-- </div> -->
+                            <a href="./Pages/Shoe/" class="btn btn-light">
+                                👞Shoe 
+                            </a>
 
-                        <!-- <div class="card-footer"> -->
-                            <!-- #WebGL #P5js #3D -->
-                        <!-- </div> -->
+                        </div>
 
-                    <!-- </div> -->
-                <!-- </div> -->
+                        <div class="card-footer">
+                            #WebGL #P5js #3D
+                        </div>
+
+                    </div>
+                </div>
 
             
             </div>
@@ -227,9 +279,9 @@
         py-3 = padding on the y-axis (both top and bottom) is set to scale 3. 
         Which is a size scale in Bootstrap. 
     -->
-    <footer class="footer mt-auto py-3 bg-body-tertiary">
+    <footer class="footer mt-auto py-3">
         <div class="container">
-            <span class="text-body-secondary">© 2024 The Symbol Factory </span>
+            <span class="text-light">© 2024 🏭The <strong> &lt;Symbol&gt;</strong> Factory </span>
         </div>
     </footer>
 
