@@ -5,6 +5,7 @@ const sketch2 = function (containerDivId)
     {
         const canvasContainer = document.getElementById(containerDivId);
         let shoeModel;
+        let shoeTexture;
 
         p.preload = function () 
         {
@@ -50,9 +51,10 @@ const sketch2 = function (containerDivId)
                 p.rotateX(180);
                 p.ambientLight(200);
                 p.rotateY((-p.frameCount * 1));
+                p.directionalLight(255,255,255, 0, 1, 0);
                 // p.pointLight(255, 255, 255, locX, locY, 100);
-                p.specularMaterial(100);
                 // p.ambientMaterial(50);
+                p.specularMaterial(100);
                 p.shininess(10);
                 p.noStroke();
                 p.texture(shoeTexture);
