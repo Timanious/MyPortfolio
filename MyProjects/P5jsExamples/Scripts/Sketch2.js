@@ -4,9 +4,9 @@ const sketch2 = function (containerDivId)
     {
         const canvasContainer = document.getElementById(containerDivId);
 
-        let angle = 0;
+        let angle = 0.0;
         let initialContainerWidth = 0;
-        let tex;
+        let tex = null;
 
         p.preload = function ()
         {
@@ -38,8 +38,6 @@ const sketch2 = function (containerDivId)
                 p.translate(0, 0, 0); // Position objects at the origin
                 p.scale(scaleFactor);
 
-
-                // Your existing rotation logic
                 if (p.mouseIsPressed) 
                 {
                     angle = p.map(p.mouseX, 0, p.width, 0, p.TWO_PI);
@@ -47,11 +45,10 @@ const sketch2 = function (containerDivId)
                 }
                 else
                 {
-                    p.rotateY(p.frameCount * 0.01);
+                    p.rotateY(p.frameCount * 0.01); // Rotate by time
                 }
                 
-                // Apply the texture to the sphere
-                p.texture(tex);
+                p.texture(tex); // Apply the texture to the sphere
                 p.sphere(150); // Adjust the sphere size as needed
             p.pop();
         }
