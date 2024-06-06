@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>🧊Hello Cube!</title>
+    <title>🌎Globe</title>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
@@ -25,9 +25,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
 
     <!-- My own scripts-->
-    <script defer src="Scripts/RotatingCube.js"></script>
-    <script defer src="Scripts/RotatingCube2.js"></script>
-
+    <script defer src="./Scripts/RotatingGlobe.js"></script>
     
 </head>
 
@@ -38,7 +36,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
             <a class="navbar-brand" href="/index.html">
-                🧊Hello Cube!
+                🌎Globe
             </a>
 
             <button
@@ -130,11 +128,11 @@
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                            <a class="dropdown-item active" href="./index.html">
+                            <a class="dropdown-item active" href="../HelloCube/">
                                 🧊HelloCube
                             </a>
 
-                            <a class="dropdown-item active" href="../Globe/">
+                            <a class="dropdown-item active" href="./index.html">
                                 🌎Globe
                             </a>
 
@@ -173,24 +171,26 @@
     <main class="flex-shrink-0">
         <!-- Content Area -->
         <div class="container mt-2">
+
+            <!-- Row 1 -->
             <div class="row">
 
                 <!-- Card 1 -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-2 px-1">
                     <div class="card text-white bg-dark text-center">
 
                         <div class="card-header">
-                            🧊Hello Cube!
+                            🌎Globe
                         </div>
 
                         <div class="card-body">
 
                             <h5 class="card-title">
-                                🧊Hello Cube!
+                                🌎Globe
                             </h5>
 
                             <p class="card-text">
-                                A <a href="https://p5js.org/" target="_blank" rel="noopener noreferrer">P5js</a> + WebGL Canvas Displaying a Basic 3D Cube Rotating Freely.</br>
+                                A <a href="https://p5js.org/" target="_blank" rel="noopener noreferrer">P5js</a> + WebGL Canvas Displaying a Basic 3D Sphere Primitive with a Globe texture mapped to its surface.</br>
                                 See the official P5js examples page for more information on how to create different types of 3D objects and for many other cool examples:</br>
                                 <a href="https://p5js.org/examples/" target="_blank" rel="noopener noreferrer">https://p5js.org/examples/</a>
                             </p>
@@ -203,13 +203,17 @@
 
                     </div>
                 </div>
-                
+            </div>
+
+            <!-- Row 2 -->
+            <div class="row">
+
                 <!-- Card 2 -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-2 px-1">
                     <div class="card text-white bg-dark text-center">
 
                         <div class="card-header">
-                            🧊Hello Cube!
+                            🌎Globe
                         </div>
 
                         <div class="card-body">
@@ -224,6 +228,7 @@
 
                     </div>
                 </div>
+            </div>
 
                 <!-- Card 2 -->
                 <!-- <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2 px-1"> -->

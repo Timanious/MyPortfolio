@@ -9,8 +9,8 @@ const sketch2 = function (containerDivId)
 
         p.preload = function () 
         {
-            shoeModel = p.loadModel('./3DModels/Shoe-3DModel/Shoe.obj', true);
-            shoeTexture = p.loadImage('./Textures/Shoe-Textures/Shoe-Albedo.jpg');
+            shoeModel = p.loadModel('./3DModels/OldShoe.obj', true);
+            shoeTexture = p.loadImage('./Textures/OldShoe-Albedo.jpg');
         }
 
         p.setup = function () 
