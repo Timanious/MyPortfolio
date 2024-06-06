@@ -4,3 +4,5 @@
 new p5(sketch1('CanvasContainer1'));
 
 new p5(sketch2('CanvasContainer2'));
+
+new p5(sketch3('CanvasContainer3'));

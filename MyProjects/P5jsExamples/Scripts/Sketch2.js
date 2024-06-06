@@ -1,67 +1,59 @@
-
 const sketch2 = function (containerDivId) 
 {
     return function (p) 
     {
         const canvasContainer = document.getElementById(containerDivId);
-        let shoeModel;
-        let shoeTexture;
 
-        p.preload = function () 
+        let angle = 0;
+        let initialContainerWidth = 0;
+        let tex;
+
+        p.preload = function ()
         {
-            shoeModel = p.loadModel('./3DModels/OldShoe.obj', true);
-            shoeTexture = p.loadImage('./Textures/OldShoe-Albedo.jpg');
+            tex = p.loadImage("./Textures/Earth-Albedo.jpg");
         }
 
         p.setup = function () 
         {
-            // const canvasContainer = document.getElementById("CanvasContainer2");
-            p.describe("A rotating white cube in the center of a black canvas");
+            p.describe("A 3D rendered globe that can be rotated with the mouse.");
 
-            // Create the P5js Canvas. Storing it in a variable isn't nessescary but could be useful later on.
-            let canvas = p.createCanvas(256, 256, p.WEBGL);
+            // Set the initial container width
+            initialContainerWidth = canvasContainer.offsetWidth;
 
+            // Create the P5.js canvas
+            let canvas = p.createCanvas(canvasContainer.offsetWidth, canvasContainer.offsetWidth, p.WEBGL);
             canvas.parent(containerDivId);
-
-            // Resize the canvas to its parent's size.
-            p.resizeCanvas(canvasContainer.offsetWidth, canvasContainer.offsetWidth);
         }
 
         p.draw = function () 
         {
-
-            // let locX = p.mouseX - p.height / 2;
-            // let locY = p.mouseY - p.width / 2;
-
-            // Set the canvas background color to the same color as the cards body background color to seriously blend in.
             p.background(255, 150, 111);
+            p.noStroke();
 
-            // Scale the coordinate system so that the size of the cube stays the same relative to the canvas size.
-            p.scale(canvasContainer.offsetWidth);
+            // Calculate the dynamic scale factor
+            const scaleFactor = canvasContainer.offsetWidth / initialContainerWidth;
+            // console.log(scaleFactor);
 
-            // Push() begins a drawing group so that the translations within this group don't affect the objects after the group.
-            // See: https://p5js.org/reference/#/p5/push
             p.push();
-
                 p.translate(0, 0, 0); // Position objects at the origin
-                p.scale(0.0045);      // Scale model down in size
-                // p.rotateZ((p.frameCount * 0.01) + 123); // Rotate the objects on the Z axis taking framerate into acount
-                // p.rotateX((p.frameCount * 0.01) + 123);
-                p.angleMode(p.DEGREES);
-                p.rotateX(180);
-                p.ambientLight(200);
-                p.rotateY((-p.frameCount * 1));
-                p.directionalLight(255,255,255, 0, 1, 0);
-                // p.pointLight(255, 255, 255, locX, locY, 100);
-                // p.ambientMaterial(50);
-                p.specularMaterial(100);
-                p.shininess(10);
-                p.noStroke();
-                p.texture(shoeTexture);
-                p.model(shoeModel);
-                p.directionalLight(255, 255, 255, 0.5, 0.75, 0);
-            
-            p.pop(); // End this drawing group. 
+                p.scale(scaleFactor);
+
+
+                // Your existing rotation logic
+                if (p.mouseIsPressed) 
+                {
+                    angle = p.map(p.mouseX, 0, p.width, 0, p.TWO_PI);
+                    p.rotateY(angle);
+                }
+                else
+                {
+                    p.rotateY(p.frameCount * 0.01);
+                }
+                
+                // Apply the texture to the sphere
+                p.texture(tex);
+                p.sphere(150); // Adjust the sphere size as needed
+            p.pop();
         }
 
         p.windowResized = function () 
@@ -70,3 +62,5 @@ const sketch2 = function (containerDivId)
         }
     }
 }
+
+// let myp5 = new p5(sketch1('CanvasContainer2')); // Moved to SketchManager.js
