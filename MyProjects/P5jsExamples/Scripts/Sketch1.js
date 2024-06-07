@@ -32,12 +32,13 @@ const sketch1 = function (containerDivId)
             // Push() begins a drawing group so that the translations within this group don't affect the objects after the group.
             // See: https://p5js.org/reference/#/p5/push
             p.push();
-            p.translate(0, 0, 0); // Position objects at the origin
-            p.rotateZ(p.frameCount * 0.01); // Rotate the objects on the Z axis taking framerate into acount
-            p.rotateX(p.frameCount * 0.01);
-            p.rotateY(p.frameCount * 0.01);
-            p.box(0.5, 0.5, 0.5); // Draw a cube
+                p.translate(0, 0, 0); // Position objects at the origin
+                p.rotateZ(p.frameCount * 0.01); // Rotate the objects on the Z axis taking framerate into acount
+                p.rotateX(p.frameCount * 0.01);
+                p.rotateY(p.frameCount * 0.01);
+                p.box(0.5, 0.5, 0.5); // Draw a cube
             p.pop(); // End this drawing group. 
+            
         }
 
         p.windowResized = function () 

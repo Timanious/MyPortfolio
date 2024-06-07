@@ -9,13 +9,14 @@ function setup()
     // Create the P5js Canvas. Storing it in a variable isn't nessescary but could be useful later on.
     let canvas = createCanvas(256,256, WEBGL);
 
-    // Resize the canvas to its parent's size.
-    resizeCanvas(canvasContainer.offsetWidth, canvasContainer.offsetWidth);
-
     // Parent the canvas to the CanvasContainer div, meaning that the canvas will become a child of the CanvasContainer.
     // About 'parenting' objects, think of it like this: 
     // Children may move about freely within their parents space but when their parents move the children move with them.)
     canvas.parent('CanvasContainer');
+    
+    // Resize the canvas to its parent's size.
+    resizeCanvas(canvasContainer.offsetWidth, canvasContainer.offsetWidth);
+
 }
 
 function draw()

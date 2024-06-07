@@ -6,11 +6,12 @@ const sketch2 = function (containerDivId)
 
         let angle = 0.0;
         let initialContainerWidth = 0;
-        let tex = null;
+        let earthTexture = null;
+        let scaleFactor = 1.0;
 
         p.preload = function ()
         {
-            tex = p.loadImage("./Textures/Earth-Albedo.jpg");
+            earthTexture = p.loadImage('./Textures/Earth-Albedo.jpg');
         }
 
         p.setup = function () 
@@ -31,7 +32,7 @@ const sketch2 = function (containerDivId)
             p.noStroke();
 
             // Calculate the dynamic scale factor
-            const scaleFactor = canvasContainer.offsetWidth / initialContainerWidth;
+            scaleFactor = canvasContainer.offsetWidth / initialContainerWidth;
             // console.log(scaleFactor);
 
             p.push();
@@ -48,13 +49,14 @@ const sketch2 = function (containerDivId)
                     p.rotateY(p.frameCount * 0.01); // Rotate by time
                 }
                 
-                p.texture(tex); // Apply the texture to the sphere
-                p.sphere(150); // Adjust the sphere size as needed
+                p.texture(earthTexture); // Apply the texture to the sphere
+                p.sphere(90); // Adjust the sphere size as needed
             p.pop();
         }
 
         p.windowResized = function () 
         {
+            // Resize the canvas to its parent's size when the window is resized
             p.resizeCanvas(canvasContainer.offsetWidth, canvasContainer.offsetWidth);
         }
     }

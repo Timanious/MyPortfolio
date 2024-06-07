@@ -1,13 +1,14 @@
 const canvasContainer = document.getElementById("CanvasContainer");
 
-let angle = 0;
+let angle = 0.0;
 let initialContainerWidth = 0;
-let img;
+let earthTexture = null;
+let scaleFactor = 1.0;
 
 // Called by P5js. Use it to import external files like textures and 3D models.
 function preload() 
 {
-    tex = loadImage("./Textures/Earth-Albedo.jpg");
+    earthTexture = loadImage("./Textures/Earth-Albedo.jpg");
 }
 
 function setup() 
@@ -16,29 +17,38 @@ function setup()
     initialContainerWidth = canvasContainer.offsetWidth;
 
     // Create the P5.js canvas
-    createCanvas(canvasContainer.offsetWidth, canvasContainer.offsetWidth, WEBGL).parent('CanvasContainer');
+    const canvas = createCanvas(canvasContainer.offsetWidth, canvasContainer.offsetWidth, WEBGL);
+    canvas.parent(canvasContainer.id);
 }
 
 function draw() 
 {
     background(10);
+    noStroke();
 
     // Calculate the dynamic scale factor
-    const scaleFactor = canvasContainer.offsetWidth / initialContainerWidth;
-    console.log(scaleFactor);
+    scaleFactor = canvasContainer.offsetWidth / initialContainerWidth;
+    // console.log(scaleFactor);
     
-    scale(scaleFactor);
+    push();
+        translate(0,0,0);
+        scale(scaleFactor);
 
-    // Your existing rotation logic
-    if (mouseIsPressed) 
-    {
-        angle = map(mouseX, 0, width, 0, TWO_PI);
-    }
-    
-    rotateY(angle);
-    // Apply the texture to the sphere
-    texture(tex);
-    sphere(200); // Adjust the sphere size as needed
+        // Your existing rotation logic
+        if (mouseIsPressed) 
+        {
+            angle = map(mouseX, 0, width, 0, TWO_PI);
+            rotateY(angle);
+        }
+        else
+        {
+            rotateY(frameCount * 0.01);
+        }
+        
+        // Apply the texture to the sphere
+        texture(earthTexture);
+        sphere(200); // Adjust the sphere size as needed
+    pop();
 }
 
 function windowResized() 
