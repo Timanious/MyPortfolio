@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
 
     <!-- My own CSS -->
-    <!-- <link rel="stylesheet" href="./Styles/Style.css"/> -->
+    <link rel="stylesheet" href="./Styles/Style.css"/>
 
     <!-- Bootstrap JS, Popper.js, and jQuery Scripts-->
     <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -24,11 +24,12 @@
     <!-- P5.js library -->
     <script defer src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
     <!-- P5.js sound library-->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.js"></script>
+    <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.js"></script> -->
 
     <!-- My own scripts-->
-    <script defer src="./Scripts/AudioVisualizerCubes.js"></script>
-    
+    <script defer src="./Scripts/BarChart3D.js"></script>
+    <script defer src="./Scripts/ChartManager.js"></script>
+
 </head>
 
 <body class="d-flex flex-column h-100" style="background-color: rgb(0, 0, 0);">
@@ -38,7 +39,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
             <a class="navbar-brand" href="/index.html">
-                🎶Audio Visualizer Cubes
+                📦Chart3Djs
             </a>
 
             <button
@@ -132,7 +133,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
                             <a class="dropdown-item active" href="./index.html">
-                                🎶Audio Visualizer Cubes
+                                📦Chart3Djs
                             </a>
 
                             <a class="dropdown-item" href="../HelloCube/">
@@ -151,6 +152,12 @@
                         </div>
                     </li>
                     <!-- End of Dropdown -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://thesymbolfactory.com/MyPortfolio/" target="_blank" rel="noopener noreferrer">
+                            The <strong>&lt;Symbol&gt;</strong> Factory 
+                        </a>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/Timanious/MyPortfolio" target="_blank" rel="noopener noreferrer">
@@ -181,23 +188,25 @@
             <div class="row">
 
                 <!-- Card 1 -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-2 px-1">
                     <div class="card text-white bg-dark text-center">
 
                         <div class="card-header">
-                            🎶Audio Visualizer Cubes
+                            📦Chart3Djs
                         </div>
 
                         <div class="card-body">
 
                             <h5 class="card-title">
-                                🎶Audio Visualizer Cubes
+                                📦Chart3Djs
                             </h5>
 
                             <p class="card-text">
-                                A <a href="https://p5js.org/" target="_blank" rel="noopener noreferrer">P5js</a> + WebGL Canvas using Cubes and the P5js Audio Library to Visualize Microphone Audio Volume.</br>
+                                Chart3Djs is a Demonstrational 3D version of the ChartJS JavaScript Library using Instances of JavaScript Classes and P5js Sketches.</br>
+                                </br> 
                                 See the official P5js examples page for more information on how to create different types of 3D objects and for many other cool examples:</br>
-                                <a href="https://p5js.org/examples/" target="_blank" rel="noopener noreferrer">https://p5js.org/examples/</a>
+                                <a href="https://p5js.org/" target="_blank" rel="noopener noreferrer">https://p5js.org</a> </br>
+                                <a href="https://p5js.org/examples/" target="_blank" rel="noopener noreferrer">https://p5js.org/examples</a>
                             </p>
 
                         </div>
@@ -208,18 +217,25 @@
 
                     </div>
                 </div>
+
+            </div>
+            
+            <div class="row">
                 
-                <!-- Card 2 -->
+                <!-- Row 2 Card 1 -->
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
                     <div class="card text-white bg-dark text-center">
 
                         <div class="card-header">
-                            🧊Hello Cube!
+                            📦BarChart3D
                         </div>
 
                         <div class="card-body">
-                            <div id="CanvasContainer">
+                            <div id="CanvasContainer1">
                                 <!-- Canvas will be insterted by the P5js script over here-->
+                            </div>
+                            <div id="SlidersContainer">
+                                <!-- Sliders will be insterted by the P5js script over here-->
                             </div>
                         </div>
 
@@ -229,6 +245,56 @@
 
                     </div>
                 </div>
+
+                <!-- Row 2 Card 2 -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+
+                        <div class="card-header">
+                            📦BarChart3D
+                        </div>
+
+                        <div class="card-body">
+                            <div id="CanvasContainer2">
+                                <!-- Canvas will be insterted by the P5js script over here-->
+                            </div>
+                            <div id="SlidersContainer">
+                                <!-- Sliders will be insterted by the P5js script over here-->
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            #WebGL #P5js #3D
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Row 3 Card 3 -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
+
+                        <div class="card-header">
+                            📦3D Cubes Chart
+                        </div>
+
+                        <div class="card-body">
+                            <div id="CanvasContainer3">
+                                <!-- Canvas will be insterted by the P5js script over here-->
+                            </div>
+                            <div id="SlidersContainer">
+                                <!-- Sliders will be insterted by the P5js script over here-->
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            #WebGL #P5js #3D
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
 
                 <!-- Card 2 -->
                 <!-- <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2 px-1"> -->
