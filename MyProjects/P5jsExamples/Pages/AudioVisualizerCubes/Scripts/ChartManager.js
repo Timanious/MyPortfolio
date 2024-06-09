@@ -21,3 +21,13 @@
     let myChart =  new BarChart3D('CanvasContainer1', data1);
     let myChart2 = new BarChart3D('CanvasContainer2', data2);
     let myChart3 = new BarChart3D('CanvasContainer3', data3);
+
+// fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=365')
+//     .then(response => response.json())
+//     .then(data => {
+//         // The data object includes two arrays: prices and market_caps
+//         // Each array contains pairs of timestamps and prices or market caps
+//         let prices = data.prices.map(pair => pair[1]); // Extract the prices
+//         console.log(prices);
+//     })
+//     .catch(error => console.error('Error:', error));

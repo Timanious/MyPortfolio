@@ -1,0 +1,75 @@
+const canvasContainer = document.getElementById("CanvasContainer");
+const modelPath       = "./3DModels/IcoSphere.obj";
+
+let scaleFactor = 1.0;
+let mic         = null; 
+let fft         = null;
+let sphereModel = null;
+let texture     = null;
+
+function preload()
+{
+    sphereModel = loadModel(modelPath, true);
+}
+
+function setup() 
+{
+    initialContainerWidth = canvasContainer.offsetWidth;
+    
+    const canvas = createCanvas(256, 256, WEBGL);
+    canvas.parent(canvasContainer.id);
+    // console.log(canvasContainer.id);
+
+    resizeCanvas(canvasContainer.offsetWidth, canvasContainer.offsetWidth);
+
+    // noFill();
+
+    mic = new p5.AudioIn();
+    mic.start();
+    fft = new p5.FFT();
+    fft.setInput(mic);
+}
+
+function draw() 
+{
+    if (!sphereModel.loaded)
+        return;
+
+    background(0);
+    // noStroke();
+
+    scaleFactor = canvasContainer.offsetWidth / initialContainerWidth;
+
+    // let spectrum = fft.analyze();
+
+    
+    push();
+    
+        beginShape();
+
+        translate(0,0,0);
+        scale(scaleFactor);
+        // let sp = sphere(120);
+        const vertices = sphereModel.geometry.vertices;
+        console.log(`Vertices: ${sphereModel.geometry.vertices}`);
+        let level = mic.getLevel();
+
+        for (let i = 0; i < vertices.length; i++) 
+        {
+            let v = vertices[i];
+            let x = v.x;
+            let y = v.y;
+            let z = v.z * (1 + level * 50); // Adjust the z-coordinate based on mic level
+            vertex(x, y, z);
+        }
+    
+        sphereModel = model(sphereModel);
+        endShape();
+
+    pop();
+}
+
+function windowResized() 
+{
+    resizeCanvas(canvasContainer.offsetWidth, canvasContainer.offsetWidth);
+}
