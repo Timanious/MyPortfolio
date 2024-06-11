@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>🎨P5js Examples</title>
+    <title>MongoDB Examples</title>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
@@ -20,15 +20,21 @@
     <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.9/dist/umd/popper.min.js"></script>
     <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Chart.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <!-- P5.js library -->
-    <script defer src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
+
+    <!-- Leaflet JavaScript Library CSS & JavaScript -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <!-- My own scripts-->
-    <script defer src="Scripts/Sketch1.js"></script>
-    <script defer src="Scripts/Sketch2.js"></script>
-    <script defer src="Scripts/Sketch3.js"></script>
-    <script defer src="Scripts/SketchManager.js"></script>
+    <script defer src="./Scripts/RandomDataChart.js"></script>
+    <script defer src="./Scripts/ParsedCSVDataChart.js"></script>
+    <script defer src="./Scripts/FetchedJSONDataChart.js"></script>
+    <script defer src="./Scripts/ChartsManager.js"></script>
 
 </head>
 
@@ -36,10 +42,11 @@
     <!-- Header -->
     <header>
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: coral;">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-            <a class="navbar-brand" href="/index.html">
-                🎨P5js Examples
+            <a class="navbar-brand" href="./index.html">
+                <img src="./Icons/mongodb-svgrepo-com.png" alt="MongoDB logo icon" style="width: 1em; height: 1em;"></img>
+                MongoDB Examples
             </a>
 
             <button
@@ -79,21 +86,17 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-                            <a class="dropdown-item" href="./index.html">
-                                📈ChartJSDashBoard
+                            <a class="dropdown-item" href="../ChartJSDashboard/">
+                                📈ChartJS Dashboard
                             </a>
-
-                            <a class="dropdown-item active" href="../ChartJSExamples/">
+                            <a class="dropdown-item" href="./index.html">
                                 📊ChartJS Examples
                             </a>
-
                             <a class="dropdown-item" href="../TheWallOfShaders/">
-                                🧱TheWallOfShaders
+                                🧱The Wall Of Shaders
                             </a>
-
                             <a class="dropdown-item" href="../OpenGLShaderEditor/">
-                                ✨OpenGLShaderEditor
+                                ✨OpenGL Shader Editor
                             </a>
                             <a class="dropdown-item bi bi-bootstrap" href="../BootstrapCards/">
                                 BootstrapCards
@@ -107,50 +110,14 @@
                             <a class="dropdown-item" href="../RotatingDivs/">
                                 🛞Rotating <strong>&lt;div&gt;</strong>s
                             </a>
-                            <a class="dropdown-item active" href="./index.html">
+                            <a class="dropdown-item" href="../P5jsExamples/">
                                 🎨P5js Examples
                             </a>
-                            <a class="dropdown-item active" href="./MyProjects/MongoDBExamples/">
+                            <a class="dropdown-item active" href="./index.html">
                                 <img src="./Icons/mongodb-svgrepo-com.png" alt="MongoDB logo icon" style="width: 1em; height: 1em;"></img>
                                 MongoDB Examples
                             </a>
-                            <!-- Add more project links above here -->
-                        </div>
-                    </li>
-                    <!-- End of Dropdown -->
-
-                    <!-- Dropdown Menu for Example Pages -->
-                    <li class="nav-item dropdown">
-                        <a
-                            class           = "nav-link dropdown-toggle"
-                            href            = "./index.html"
-                            id              = "navbarDropdownMenuLink"
-                            role            = "button"
-                            data-toggle     = "dropdown"
-                            aria-haspopup   = "true"
-                            aria-expanded   = "false"
-                        >
-                            Examples
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-                            <a class="dropdown-item" href="./Pages/Chart3Djs/">
-                                📦Chart3Djs
-                            </a>
-
-                            <a class="dropdown-item" href="./Pages/HelloCube/">
-                                🧊HelloCube
-                            </a>
-
-                            <a class="dropdown-item active" href="./Pages/Globe/">
-                                🌎Globe
-                            </a>
-
-                            <a class="dropdown-item active" href="./Pages/Shoe/">
-                                👞Shoe
-                            </a>
-
+                            
                             <!-- Add more project links above here -->
                         </div>
                     </li>
@@ -163,14 +130,14 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/Timanious/MyPortfolio" target="_blank" rel="noopener noreferrer">
-                            GitHub
+                        <a class="nav-link" href="https://github.com/Timanious/MyPortfolio/" target="_blank" rel="noopener noreferrer">
+                            GitHub Repo
                         </a>
                     </li>
                     
                     <li class="nav-item">
                         <a class="nav-link" href="/Pages/AboutMe.html">
-                            AboutMe
+                            About Me
                         </a>
                     </li>
 
@@ -188,154 +155,103 @@
     <main class="flex-shrink-0">
         <!-- Content Area -->
         <div class="container mt-2">
-
-            <!-- Row 1 -->
             <div class="row">
 
                 <!-- Card 1 -->
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-2 px-1">
-                    <div class="card text-white text-center">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
 
                         <div class="card-header">
-                            🎨P5js Examples
+                            Line Chart
                         </div>
 
                         <div class="card-body">
 
                             <h5 class="card-title">
-                                Introduction
+                                Random Data Chart
                             </h5>
 
                             <p class="card-text">
-                                On this page you can find a bunch of examples of the P5js JavaScript Library.
-                                Click on the button below to go to the official P5js Documentation.
+                                A Basic ChartJS Line Chart displaying random data updated every second.
                             </p>
-                            <a class="btn btn-light" href="https://p5js.org/" target="_blank" rel="noopener noreferrer">
-                                <img src="./Icons/P5js-Icon.ico" alt="P5js JavaScript library icon image" style="width: 1em;"> P5js
-                            </a>
+
+                            <canvas id="ChartCanvas1"></canvas>
 
                         </div>
 
                         <div class="card-footer">
-                            #P5js #JavaScript #CG
+                            #ChartJS #Random #LineChart
                         </div>
 
                     </div>
                 </div>
-            </div>
 
-            <!-- Row 2 -->
-            <div class="row">
 
                 <!-- Card 2 -->
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
-                    <div class="card text-white text-center">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
 
                         <div class="card-header">
-                            🧊Hello Cube!
+                            Fetching Data From a CSV File
                         </div>
 
                         <div class="card-body">
 
                             <h5 class="card-title">
-                                🧊Hello Cube!
+                                Fetching Data From a CSV File
                             </h5>
 
                             <p class="card-text">
-                                A P5js + WebGL Canvas Displaying a Basic 3D Unit Cube Rotating Freely.
+                                A bar chart displaying data Fetched and Parsed from a Comma Seperated Values (CSV) file.
                             </p>
 
-                            <div id="CanvasContainer1">
-                                <!-- Canvas will be insterted by the P5js script over here-->
-                            </div>
-
-                            <a href="./Pages/HelloCube/" class="btn btn-light">
-                                🧊Hello Cube! 
-                            </a>
+                            <canvas id="ChartCanvas2"></canvas>
 
                         </div>
 
                         <div class="card-footer">
-                            #WebGL #P5js #3D
+                            #ChartJS #Random #LineChart
                         </div>
 
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
-                    <div class="card text-white text-center">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                    <div class="card text-white bg-dark text-center">
 
                         <div class="card-header">
-                            🌎Globe
+                            Fetched JSON Data Chart
                         </div>
 
                         <div class="card-body">
 
                             <h5 class="card-title">
-                                🌎Globe
+                                Fetched JSON Data Chart
                             </h5>
 
                             <p class="card-text">
-                                A Primitive 3D Sphere Object with a Nice Globey texture.
+                                A map created with <a href="https://leafletjs.com" target="_blank" rel="noopener noreferrer">Leaflet.js</a> displaying the location of the ISS Fetched from the <a href="https://wheretheiss.at" target="_blank" rel="noopener noreferrer">wheretheiss.at</a> API.
                             </p>
-
-                            <div id="CanvasContainer2">
-                                <!-- Canvas will be insterted by the P5js script over here-->
-                            </div>
-
-                            <a href="./Pages/Globe/" class="btn btn-light">
-                                🌎Globe 
-                            </a>
+                            <p>
+                                Latitude: <span id="ValueLatitude">     </span></br>
+                                Longitude: <span id="ValueLongitude">   </span>
+                            </p>
+                            <div id="ContainerDivISSMap" style="height: 256px;"></div>
 
                         </div>
 
                         <div class="card-footer">
-                            #WebGL #P5js #3D #Globe
+                            #ChartJS #Random #LineChart
                         </div>
 
                     </div>
                 </div>
-
-                <!-- Card 4 -->
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
-                    <div class="card text-white text-center">
-
-                        <div class="card-header">
-                            👞Shoe
-                        </div>
-
-                        <div class="card-body">
-
-                            <h5 class="card-title">
-                                👞Shoe
-                            </h5>
-
-                            <p class="card-text">
-                                A Shoe.
-                            </p>
-
-                            <div id="CanvasContainer3">
-                                <!-- Canvas will be insterted by the P5js script over here-->
-                            </div>
-
-                            <a href="./Pages/Shoe/" class="btn btn-light">
-                                👞Shoe 
-                            </a>
-
-                        </div>
-
-                        <div class="card-footer">
-                            #WebGL #P5js #3D
-                        </div>
-
-                    </div>
-                </div>
-
-            
+                
             </div>
         </div>
     </main>
+
 
     <!-- 
         Footer
@@ -345,9 +261,9 @@
         py-3 = padding on the y-axis (both top and bottom) is set to scale 3. 
         Which is a size scale in Bootstrap. 
     -->
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto py-3 bg-dark">
         <div class="container">
-            <span class="text-light">© 2024 🏭The <strong> &lt;Symbol&gt;</strong> Factory </span>
+            <span class="text-light">© 2024 The <strong>&lt;Symbol&gt;</strong> Factory </span>
         </div>
     </footer>
 
