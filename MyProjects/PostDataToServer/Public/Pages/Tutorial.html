@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posting Data to MongoDB via a Node.js Express server app Tutorial</title>
+</head>
+<body>
+        <header>
+            <h1>
+                Posting Data to MongoDB via a Node.js Express server app Tutorial
+            </h1>
+        </header>
+
+        <main>
+            <h2>
+                Posting Data to MongoDB via a Node.js Express server app Tutorial
+            </h2>
+
+            <h3>
+                Steps
+            </h3>
+
+            <h4> Step 1</h4>
+            <p> 
+                Create a basic index.html file.
+            </p>
+            
+            <h4>
+                Step 2
+            </h4>            
+            <p>
+                Add the &lt;script&gt; include element to include Client.js.
+            </p>
+            
+            <p>
+                In the terminal type '$ npm init' to create a package.json file.
+            </p>
+
+            <h4>
+                Step 4 
+            </h4>
+            <p>
+                Add   "type": "module", to the package.json file to tell the browser that we're using ES6 modules.
+            </p>
+
+            <h4>
+                Step 5
+            </h4>
+            <p>
+                Write the following command in the VSCode Terminal to install the Node.js Express server module.
+            </p>
+            <p>
+                <strong>$ npm install express</strong>
+            </p>
+
+            <h4>
+                Step 6
+            </h4>
+            <p>
+                Create a .gitignore file with the following content: 
+            </p>
+            <p>
+                <strong>node_modules/</strong>
+            </p>
+            <h4>
+
+                Step 7
+            </h4>
+            <p>
+                Create a new Server.js file and open it..
+            </p>
+
+            <h4>
+                Step 8
+            </h4>
+            <p>
+                In order to have access to the Express package we need to use import.</br>
+                The reason we want to do that is because we want to create a web application.</br>
+                So in Server.js write the following line which will import the express module
+                into our Server.js file and it will also store a reference to it in the express variable:
+            </p>
+            <p>
+                <strong>
+                    // Server.js</br>
+                    console.log('Hello from Server!');</br></br>
+
+                    import express from 'express';</br>
+                </strong>
+            </p>
+
+            <h4>
+                Step 9
+            </h4>
+            <p>
+                The way that we can create the web app is by calling the <strong>express()</strong> function.</br>
+                The whole Node Express package basically comes in as a function that we can execute and put in a constant..</br>
+                (Newly added code highlighted in blue.)
+
+            </p>
+            <p>
+                <strong>
+                    // Server.js</br>
+                    console.log('Hello from Server!');</br></br>
+
+                    import express from 'express';</br></br>
+
+                    <span style="color: blue;">const webServerApp = express();</span></br>
+                    <span style="color: blue;">const port         = 3000;</span></br>
+                </strong>
+            </p>
+
+            <h4>
+                Step 10
+            </h4>
+            <p>
+                Start listening at a port number and subscribe a function to the callback event for when the server starts listening.
+            </p>
+            <p>
+                <strong>
+                    // Server.js</br>
+                    console.log('Hello from Server!');</br></br>
+
+                    import express from 'express';</br></br>
+
+                    const webServerApp = express();</br>
+                    const port         = 3000;</br></br>
+
+                    <span style="color: blue;">
+                        webServerApp.listen(port, OnServerStartListening());</br></br>
+
+                        function OnServerStartListening()</br>
+                        {</br>
+                        &emsp;console.log(`Webserver listening at port ${port}`);</br>
+                        }
+                    </span>
+                </strong>
+            </p>
+
+            <h4>
+                Step 11
+            </h4>
+            <p>
+                Restart the server in the terminal with command <strong>$ node Server.js</strong>.</br>
+                The server is now listening for requests so when you go to localhost:3000 in your web browser you
+                should see an error message saying <strong>'Cannot GET /'</strong> displayed on the page.
+                This is because the server isn't actually serving up the index.html file just yet..
+            </p>
+
+            <h4>
+                Step 12
+            </h4>
+            <p>
+                To have the Server serve up the index.html file, create a folder named Public and put your index.html file into it.</br>
+                Then add the following code to your Server.js file to tell the server to serve up the files in the Public folder.</br>
+                </br>
+                <strong>
+                    // Server.js</br>
+                    console.log('Hello from Server!');</br></br>
+
+                    import express from 'express';</br></br>
+
+                    const webServerApp = express();</br>
+                    const port         = 3000;</br></br>
+
+                    webServerApp.listen(port, OnServerStartListening());</br></br>
+
+                    function OnServerStartListening()</br>
+                    {</br>
+                    &emsp;console.log(`Webserver listening at port ${port}`);</br>
+                    }</br></br>
+
+                    <span style="color: blue;">
+                        webServerApp.use(express.static('Public'));
+                    </span>
+                </strong>
+            </p>
+
+                <h4>
+                    Step 13
+                </h4>
+                <p>
+                    Setting up Post request Routes</br>
+                    See: 
+                    <a href="https://expressjs.com/en/guide/routing.html#route-methods" target="_blank" rel="nofollow noopener noreferrer">
+                            https://expressjs.com/en/guide/routing.html#route-methods 
+                    </a></br></br>
+
+                    Following the steps of Working with Data and APIs in JavaScript - 2.3 HTTP Post Request with fetch()</br>
+                    See:</br>
+                    <a href="" target="_blank" rel="noopener noreferrer nofollow">
+                        https://www.youtube.com/watch?v=Kw5tC5nQMRY&t=
+                    </a></br></br>
+
+                    The express post() method takes two arguments. The first is the adress for where we want to receive that post and the second is</br>
+                    a callback function for looking at the information coming in and sending a response back. </br></br>
+                </p>
+                <p> 
+                    <strong>
+                        // Server.js</br>
+                        console.log('Hello from Server!');</br></br>
+
+                        import express from 'express';</br></br>
+
+                        const webServerApp = express();</br>
+                        const port         = 3000;</br></br>
+
+                        webServerApp.listen(port, OnServerStartListening());</br></br>
+
+                        function OnServerStartListening()</br>
+                        {</br>
+                        &emsp;console.log(`Webserver listening at port ${port}`);</br>
+                        }</br></br>
+
+                        webServerApp.use(express.static('Public'));</br></br>
+
+                        <span style="color: blue;">
+                            webServerApp.post('/api', (request, response) => OnPostRequestCallback(request, response))</br></br>
+
+                            function OnPostRequestCallback(request, response)</br>
+                            {</br>
+                            &emsp;console.log('Received a POST request: ' + request);</br>
+                            &emsp;console.log('Request body: ' + request.body);</br>
+                            &emsp;console.log('Body message property value: ' + request.body.message);</br>
+                            }
+                        </span></br></br>
+                    </strong>
+                </p>
+                <p>
+                    The next step is to have the client send something to this particular endpoint with a post so we can now</br>
+                    move over to the client code.
+                </p>
+
+                <h4>
+                    Step 14
+                </h4>
+                <p>
+                    Create a folder named something like js or Scripts inside of the Public folder to contain the </br>
+                    client side running JavaScript files for our website.</br>
+                    Create a new JavaScript file named main.js or Client.js for the client side JavaScript code inside </br>
+                    of the /Public/Scripts folder and open it.
+                </p>
+                <p>
+                    Make up an object called something like data with the information that we want to send to the server.</br>
+                </p>
+                <p>
+                    <strong>
+                        // Public/Client.js</br></br>
+
+                        const data = </br>
+                        {</br>
+                        &emsp;message: 'Hello from client!',</br>
+                        }
+                    </strong>
+                </p>
+
+                <h4>
+                    Step 15
+                </h4>
+                <p>
+                    If this were a fetch get request then we would simply do a fetch to the /api endpoint like this:
+                </p>
+                <p>
+                    <strong>
+                        fetch('/api');
+                    </strong>
+                </p>
+                <p>
+                    But what we want to do is send a POST so we need to send a second argument which is just a
+                    JavaScript object. Call it something like options and set it up seperately as a variable so we can look at
+                    it more closelier before calling the fetch() function with the options as the second argument.</br>
+                    See: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer nofollow"> https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch </a>
+                </p>
+                <p>
+                    <strong>
+                        // Public/Client.js</br></br>
+
+                        const data = </br>
+                        {</br>
+                        &emsp;message: 'Hello from client!',</br>
+                        }</br></br>
+
+                        <span style="color: blue;">
+                            const options =</br> 
+                            {</br></br>
+
+                            }</br></br>
+
+                            fetch('/api', options);
+                        </span>
+                    </strong>
+                </p>
+                <p>
+                    The first property that needs to be put into the options block is the method that we're using
+                    and that method is a POST.</br>
+                </p>
+                <p>
+                    <strong>
+                        // Public/Client.js</br></br>
+
+                        const data = </br>
+                        {</br>
+                        &emsp;message: 'Hello from client!',</br>
+                        }</br></br>
+
+                        const options =</br> 
+                        {</br>
+                            <span style="color: blue;">
+                            &emsp;method: 'POST',</br>
+                            </span>
+                        }</br></br>
+
+                        fetch('/api', options);
+                    </strong>
+                </p>
+                <p>
+                    There is a lot of informatiod that can be put into the options. If you want to look at all the posibilities
+                    like the 'mode', 'cache' and 'credentials' then go to the link, above but the key thing that we want is the 'body'
+                    of the POST request. The body is where we package up all of our data that we want to post.
+                    Even though there are different ways to send the data what we want to do is send it as a text string so
+                    we want to take the JavaScript object data and make it into a JSON string.
+                </p>
+                <p>
+                    <strong>
+                        // Public/Client.js</br></br>
+
+                        const data = </br>
+                        {</br>
+                        &emsp;message: 'Hello from client!',</br>
+                        }</br></br>
+
+                        const options =</br> 
+                        {</br>
+                            &emsp;method: 'POST',</br>
+                            <span style="color: blue;">
+                            &emsp;body: JSON.stringify(data),</br>
+                            </span>
+                        }</br></br>
+
+                        fetch('/api', options);
+                    </strong>
+                </p>
+
+                <p>
+                    There is one other piece that's important.. We're specifically sending data in JSON format so it is useful to
+                    specify that in what is called a header. The headers are where we specify the type of data
+                    that we're sending. In this case we're sending JSON data so we need to specify that.
+                    A header in this context is something that can be packaged along with any POST or GET request that is moving between
+                    a client and the server, and it's a way of adding some additional meta information. More information is in the Mozilla docs.
+                    Headers have a name a colon and a value. 
+                    (Usually the headers get put before the body property but for the sake of the tutorial steps order it is put below here)
+                </p>
+                <p>
+                    <strong>
+                        // Public/Client.js</br></br>
+
+                        const data = </br>
+                        {</br>
+                        &emsp;message: 'Hello from client!',</br>
+                        }</br></br>
+
+                        const options =</br> 
+                        {</br>
+                            &emsp;method: 'POST',</br>
+                            <span style="color: blue;">
+                            &emsp;headers:</br> 
+                            &emsp;{</br>
+                            &emsp;&emsp;"Content-Type": "application/json",</br>
+                            &emsp;},</br>
+                            </span>
+                            &emsp;body: JSON.stringify(data),</br>
+                        }</br></br>
+
+                        fetch('/api', options);
+                    </strong>
+                </p>
+                <p>
+                    Even though there is more that we can put in the options block the basic pieces that we need are here:
+                    1. A request to sent data as JSON,
+                    2. A header telling that the data we're sending is going to be in JSON format,
+                    3. A fetch call telling that we want to post it to the /api endpoint.
+                </p>
+
+                <h4>
+                    Step 16
+                </h4>
+                <p>
+                    So now we get the message data, we put it into a JavaScript object, package it as a POST and send it tou our /api endpoint 
+                    and in the server we receive it and console log it.</br>
+                    Restart the server with command $ node Server.js and refresh the page in the browser. To see the console.log messages 
+                    look in the VSCode terminal and you will see a message telling us that we've received a POST request but the data from
+                    the body is still undefined. This is because we still need to add the ability to parse incoming data as JSON to our server.</br>
+                    The way to do that is with the express function express.json(), similarly to how we've used express.static() to tell the server
+                    that we want to host static files.</br>
+                    So go back to <i><strong>Server.js</strong></i> to add the webServerApp.use(express.json()); line below the webServerApp.use(express.static()) line...       
+                </p>
+
+                <h4>
+                    Step 17
+                </h4>
+                <p>
+                    Add the ability to parse incoming data as JSON to our server.</br>
+                    The way to do that is with the express function, express.json(): 
+                </p>
+                <p>
+                    <strong>
+                        // Server.js</br>
+                        console.log('Hello from Server!');</br></br>
+
+                        import express from 'express';</br></br>
+
+                        const webServerApp = express();</br>
+                        const port         = 3000;</br></br>
+
+                        webServerApp.listen(port, OnServerStartListening());</br></br>
+
+                        function OnServerStartListening()</br>
+                        {</br>
+                        &emsp;console.log(`Webserver listening at port ${port}`);</br>
+                        }</br></br>
+
+                        webServerApp.use(express.static('Public'));</br></br>
+
+                        <span style="color: blue;">
+                            webServerApp.use(express.json());</br>
+                        </span></br>
+                        webServerApp.post('/api', (request, response) => OnPostRequestCallback(request, response))</br></br>
+
+                        function OnPostRequestCallback(request, response)</br>
+                        {</br>
+                        &emsp;console.log('Received a POST request: ' + request);</br>
+                        &emsp;console.log('Request body: ' + request.body);</br>
+                        &emsp;console.log('Body message property value: ' + request.body.message);</br>
+                        }
+                    </strong>
+                </p>
+
+
+                <h4>
+                    Step 18
+                </h4>
+                <p>
+                    We can also put some options into the function's arguments to control or limit what is possible in terms of receiving data,
+                    all of that is documented on the Express website over here:
+                    <a href="https://expressjs.com/en/api.html#express.json" target="_blank" rel="noopener noreferrer nofollow">
+                        https://expressjs.com/en/api.html#express.json
+                    </a></br>
+                    As an example let's add the limit property to specify the maximum size of a body that is coming in to be 1mb as a starting point:
+                </p>
+                <p>
+                    <strong>
+                        // Server.js</br>
+                        console.log('Hello from Server!');</br></br>
+
+                        import express from 'express';</br></br>
+
+                        const webServerApp = express();</br>
+                        const port         = 3000;</br></br>
+
+                        webServerApp.listen(port, OnServerStartListening());</br></br>
+
+                        function OnServerStartListening()</br>
+                        {</br>
+                        &emsp;console.log(`Webserver listening at port ${port}`);</br>
+                        }</br></br>
+
+                        webServerApp.use(express.static('Public'));</br></br>
+
+                        webServerApp.use(express.json(<span style="color: blue;">{ limit: '1mb' }</span>));</br></br>
+
+                        webServerApp.post('/api', (request, response) => OnPostRequestCallback(request, response))</br></br>
+
+                        function OnPostRequestCallback(request, response)</br>
+                        {</br>
+                        &emsp;console.log('Received a POST request: ' + request);</br>
+                        &emsp;console.log('Request body: ' + request.body);</br>
+                        &emsp;console.log('Body message property value: ' + request.body.message);</br>
+                        }
+                    </strong>
+                </p>
+
+                <h4>
+                    Step 19
+                </h4>
+                <p>
+                    Restart the server with the <strong>$ node Server.js</strong> terminal command and refresh the page in the browser. If you look in the terminal in VSCode
+                    you will now see the message from the POST's body printed out correctly!
+                </p>
+
+            </p>
+
+
+        </main>
+
+
+        <footer>
+            <strong>©️Coster-Graphics 2024</strong>
+        </footer>
+
+</body>
+</html>
