@@ -5,21 +5,16 @@ html {
     background-color: black;
 }
 
-
 /* .navbar,
 .footer { */
     /* background-color: #bd93f9; */
-    /* Purple color */
 /* } */
 
 .card {
-    /* background-color: #50fa7b; */
-    /* Turquoise color */
     border: none;
-    box-shadow: 0px 0px 5px;
+    box-shadow: 0px 0px 10px 5px rgb(23, 220, 255, 1);
 }
 
 .card:hover {
-    box-shadow: 10px 10px 20px;
-    /* box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2); */
+    box-shadow: 0px 0px 10px 1px rgba(23, 220, 255, 1);
 }
