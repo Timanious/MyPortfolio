@@ -135,23 +135,28 @@
         }
     </script>
     <script>
-        shaderWebBackground.shade({
-        shaders: {
-            image: {
-            uniforms: {
-                iResolution: (gl, loc, ctx) => gl.uniform2f(loc, ctx.width, ctx.height),
-                iTime: (gl, loc) => gl.uniform1f(loc, performance.now() / 1000),
+        shaderWebBackground.shade(
+        {
+            shaders: 
+            {
+                image: 
+                {
+                    uniforms: 
+                    {
+                        iResolution: (gl, loc, ctx) => gl.uniform2f(loc, ctx.width, ctx.height),
+                        iTime: (gl, loc) => gl.uniform1f(loc, performance.now() / 1000),
+                    }
+                }
             }
-            }
-        }
         });
     </script>
     <style>
-        .shader-web-background-fallback {
-        background: url("https://placekitten.com/666/666");
-        background-position: center;
-        background-size: cover;
-        background-attachment: fixed;
+        .shader-web-background-fallback 
+        {
+            background: url("https://placekitten.com/666/666");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
         }
     </style>
 
@@ -209,7 +214,7 @@
                                 📈ChartJSDashBoard
                             </a>
 
-                           <a class="dropdown-item active" href="../ChartJSExamples/">
+                           <a class="dropdown-item" href="../ChartJSExamples/">
                                 📊ChartJS Examples
                             </a>
 
@@ -220,15 +225,19 @@
                             <a class="dropdown-item" href="../OpenGLShaderEditor/">
                                 ✨OpenGLShaderEditor
                             </a>
+
                             <a class="dropdown-item bi bi-bootstrap" href="../BootstrapCards/">
                                 BootstrapCards
                             </a>
+
                             <a class="dropdown-item" href="../CuboidDog/">
                                 🐶CuboidDog Unity WebGL
                             </a>
+
                             <a class="dropdown-item" href="../SolarSystem/">
                                 🌌SolarSystem Unity WebGL
                             </a>
+                            
                             <a class="dropdown-item" href="../RotatingDivs/">
                                 🛞Rotating <strong>&lt;div&gt;</strong>s
                             </a>
@@ -236,6 +245,7 @@
                             <a class="dropdown-item" href="../P5jsExamples/">
                                 🎨P5js Examples
                             </a>
+
                             <!-- Add more project links above here -->
                         </div>
                     </li>
@@ -255,7 +265,7 @@
                     
                     <li class="nav-item">
                         <a class="nav-link" href="/Pages/AboutMe.html">
-                            AboutMe
+                            About Me
                         </a>
                     </li>
 

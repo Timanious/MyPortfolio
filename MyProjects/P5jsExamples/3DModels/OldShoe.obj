@@ -5,7 +5,7 @@
 #
 
 # Uncomment to use a .mtl material description file.
-#mtllib SHoe.mtl
+#mtllib Shoe.mtl
 
 o Shoe
 v -0.112624 0.002933 0.034993
