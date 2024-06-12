@@ -232,7 +232,8 @@
                 </h4>
                 <p>
                     Create a folder named something like <i>js</i> or <i>Scripts</i> inside of the <i>Public</i> folder to contain the client side running JavaScript files for our website.</br>
-                    Create a new JavaScript file named <i>main.js</i> or <i>Client.js</i> for the client side JavaScript code inside of the <i>/Public/Scripts</i> folder. To import the <i>Client.js</i> script file into the index.html page add the HTML &lt;script&gt; include tag to the index.html head section and add the defer keyword to it to make sure it is loaded after the rest of the html and css is loaded: 
+                    Create a new JavaScript file named <i>main.js</i> or <i>Client.js</i> for the client side JavaScript code inside of the <i>/Public/Scripts</i> folder.</br>
+                    To import the <i>Client.js</i> script file into the <i>index.html</i> page, add the HTML <strong>&lt;script&gt;</strong> include tag to the index.html head section and add the defer keyword to make sure it is loaded after the rest of the HTML and CSS is loaded: 
                 </p>
                 <p>
                     <strong>
@@ -241,14 +242,14 @@
                         &lt;html lang="en"&gt;</br>
                         &lt;head&gt;</br></br>
 
-                            &lt;meta charset="UTF-8"&gt;</br>
-                            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</br></br>
+                         &emsp;&lt;meta charset="UTF-8"&gt;</br>
+                         &emsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</br></br>
 
-                            &lt;title&gt;Post Data to MongoDB via a Node.js Express server app&lt;/title&gt;</br></br>
+                         &emsp;&lt;title&gt;Post Data to MongoDB via a Node.js Express server app&lt;/title&gt;</br></br>
 
                             <span style="color: blue;">
-                                &lt;!-- My Own Scripts ----&gt;</br>
-                                &lt;script defer src="./Scripts/Client.js"&gt;&lt;/script&gt;</br></br>
+                             &emsp;&lt;!-- My Own Scripts ----&gt;</br>
+                             &emsp;&lt;script defer src="./Scripts/Client.js"&gt;&lt;/script&gt;</br></br>
                             </span>
                         &lt;/head&gt;</br>
                     </strong>
