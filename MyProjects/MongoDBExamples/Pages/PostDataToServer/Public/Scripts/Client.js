@@ -39,7 +39,7 @@ const options =
         "Content-Type": "application/json",
     },
 
-    // Even though there is more that we can put in the options block the basic pieces that we need are:
+    // Even though there is more that we can put in the options block, the basic pieces that we need are:
     // 1. A request to sent data as JSON,
     // 2. A header telling that the data we're sending is going to be JSON,
     // 3. A fetch call telling that we want to post it to the /api endpoint.
