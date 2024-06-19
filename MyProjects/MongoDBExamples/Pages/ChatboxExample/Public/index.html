@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>MongoDB Examples</title>
+    <title>💬Chatbox Example</title>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
@@ -24,17 +24,18 @@
     <!-- Chart.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-
-    <!-- Leaflet JavaScript Library CSS & JavaScript -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
     <!-- My own scripts-->
-    <script defer src="./Scripts/RandomDataChart.js"></script>
-    <script defer src="./Scripts/ParsedCSVDataChart.js"></script>
-    <script defer src="./Scripts/FetchedJSONDataChart.js"></script>
-    <script defer src="./Scripts/ChartsManager.js"></script>
+    <script defer src="./Scripts/Client.js"></script>
+
+    <style>
+        .shader-web-background-fallback 
+        {
+            background: url("https://placekitten.com/666/666");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
 
 </head>
 
@@ -45,8 +46,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
             <a class="navbar-brand" href="./index.html">
-                <img src="./Icons/mongodb-svgrepo-com.png" alt="MongoDB logo icon" style="width: 1em; height: 1em;"></img>
-                MongoDB Examples
+                💬Chatbox Example
             </a>
 
             <button
@@ -86,38 +86,43 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="../ChartJSDashboard/">
-                                📈ChartJS Dashboard
+
+                            <a class="dropdown-item active" href="./index.html">
+                                📈ChartJSDashBoard
                             </a>
-                            <a class="dropdown-item" href="./index.html">
+
+                           <a class="dropdown-item" href="../ChartJSExamples/">
                                 📊ChartJS Examples
                             </a>
+
                             <a class="dropdown-item" href="../TheWallOfShaders/">
-                                🧱The Wall Of Shaders
+                                🧱TheWallOfShaders
                             </a>
+
                             <a class="dropdown-item" href="../OpenGLShaderEditor/">
-                                ✨OpenGL Shader Editor
+                                ✨OpenGLShaderEditor
                             </a>
+
                             <a class="dropdown-item bi bi-bootstrap" href="../BootstrapCards/">
                                 BootstrapCards
                             </a>
+
                             <a class="dropdown-item" href="../CuboidDog/">
                                 🐶CuboidDog Unity WebGL
                             </a>
+
                             <a class="dropdown-item" href="../SolarSystem/">
                                 🌌SolarSystem Unity WebGL
                             </a>
+
                             <a class="dropdown-item" href="../RotatingDivs/">
                                 🛞Rotating <strong>&lt;div&gt;</strong>s
                             </a>
+
                             <a class="dropdown-item" href="../P5jsExamples/">
                                 🎨P5js Examples
                             </a>
-                            <a class="dropdown-item active" href="./index.html">
-                                <img src="./Icons/mongodb-svgrepo-com.png" alt="MongoDB logo icon" style="width: 1em; height: 1em;"></img>
-                                MongoDB Examples
-                            </a>
-                            
+
                             <!-- Add more project links above here -->
                         </div>
                     </li>
@@ -139,11 +144,11 @@
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                            <a class="dropdown-item" href="./Pages/PostDataToServer/Public/index.html">
+                            <a class="dropdown-item" href="../../PostDataToServer/">
                                 📤Post Data to Express Server
                             </a>
 
-                            <a class="dropdown-item" href="./Pages/PostDataToServer/Public/index.html">
+                            <a class="dropdown-item" href="./index.html">
                                 💬Chatbox Example
                             </a>
 
@@ -159,8 +164,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/Timanious/MyPortfolio/" target="_blank" rel="noopener noreferrer">
-                            GitHub Repo
+                        <a class="nav-link" href="https://github.com/Timanious/MyPortfolio" target="_blank" rel="noopener noreferrer">
+                            GitHub
                         </a>
                     </li>
                     
@@ -183,45 +188,47 @@
 
     <main class="flex-shrink-0">
         <!-- Content Area -->
-        <div class="container mt-4">
+        <div class="container mt-2">
             <div class="row">
-
+         
                 <!-- Card 1 -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 px-1">
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-2 px-1">
                     <div class="card text-white bg-dark text-center">
-
+                        
                         <div class="card-header">
-                            Post Data To Node.js Express Server Tutorial
+                            Bar Chart
                         </div>
-
+                        
                         <div class="card-body">
-
+                            
                             <h5 class="card-title">
-                                Post Data To Node.js Express Server Tutorial
+                                Mp3 Audio Visualizer
                             </h5>
-
+                            
                             <p class="card-text">
-                                In this tutorial you will learn how to post data from a client side website to an Express server application created with Node.js.
-                                Posting data to the server using the fetch() post method is the first part of getting that data stored in a database. The next step will be to send the posted data from the Express server to a MongoDB database which will be the subject of the next tutorial. 
+                                A ChartJS Bar Chart Mp3 Audio Visualizer Bootstrap Card.
                             </p>
 
-                            <a href="./Pages/PostDataToServer/Public/" class="btn btn-light">
-                                Tutorial
+                            <canvas id="ChartCanvas3"></canvas>
+                            
+                            <a href="#" class="btn btn-light w-100" id="ButtonPlay" >
+                                ▶️
                             </a>
 
+                            
                         </div>
 
                         <div class="card-footer">
-                            #ChartJS #Random #LineChart
+                            #ChartJS #Mp3AudioVisualizer #BarChart
                         </div>
-
+                    
                     </div>
                 </div>
                 
+
             </div>
         </div>
     </main>
-
 
     <!-- 
         Footer
