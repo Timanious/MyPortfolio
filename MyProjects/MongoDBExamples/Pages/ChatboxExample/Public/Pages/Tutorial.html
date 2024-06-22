@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post Data to Node.js Express Server Appication Tutorial</title>
+
+    <title>Chatbox Example</title>
 </head>
+
 <body>
         <header>
             <h1>
-                Post Data to Node.js Express Server Appication Tutorial
+                Chatbox Exmaple (Work In Progress)
             </h1>
         </header>
 
         <main>
             <h2>
-                Post Data to Node.js Express Server Appication Tutorial
+                Chatbox Exmaple (Work In Progress)
             </h2>
 
             <h3>
@@ -58,6 +61,7 @@
             </p>
             <p>
                 <strong>node_modules/</strong>
+                <strong>.env</strong>
             </p>
             <h4>
 
@@ -449,7 +453,6 @@
                     </strong>
                 </p>
 
-
                 <h4>
                     Step 18
                 </h4>
@@ -459,8 +462,10 @@
                     <a href="https://expressjs.com/en/api.html#express.json" target="_blank" rel="noopener noreferrer nofollow">
                         https://expressjs.com/en/api.html#express.json
                     </a></br>
+
                     As an example let's add the limit property to specify the maximum size of a body that is coming in to be 1mb as a starting point:
                 </p>
+
                 <p>
                     <strong>
                         // Server.js</br>
@@ -496,6 +501,18 @@
                 <h4>
                     Step 19
                 </h4>
+
+                <p>
+                    Restart the server with the <strong>$ node Server.js</strong> terminal command and refresh the page in the browser. If you look in the terminal in VSCode
+                    you will now see the message from the POST's body printed out correctly!
+                </p>
+
+    <!-- New Steps for creating the chatbox. This is where we want to use a database to collect the chatbox messages etcetera. -->
+
+                <h4>
+                    Step 20
+                </h4>
+
                 <p>
                     Restart the server with the <strong>$ node Server.js</strong> terminal command and refresh the page in the browser. If you look in the terminal in VSCode
                     you will now see the message from the POST's body printed out correctly!
