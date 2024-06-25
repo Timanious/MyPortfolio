@@ -65,8 +65,8 @@ webServerApp.post('/api', (request, response) => OnPostRequestCallback(request, 
 
 function OnPostRequestCallback(request, response)
 {
-    console.log('Received a POST request: ' + request);
-    console.log('Request body: ' + request.body);
+    console.log('Received a POST request: '     + request);
+    console.log('Request body: '                + request.body);
     console.log('Body message property value: ' + request.body.message);
 }
 

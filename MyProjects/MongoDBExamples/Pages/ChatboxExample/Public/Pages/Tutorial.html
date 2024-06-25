@@ -514,8 +514,39 @@
                 </h4>
 
                 <p>
-                    Restart the server with the <strong>$ node Server.js</strong> terminal command and refresh the page in the browser. If you look in the terminal in VSCode
-                    you will now see the message from the POST's body printed out correctly!
+                    Install the MongoDB Node Module with the terminal command:</br>
+                     <strong>$ npm install mongodb</strong>
+                    Next install the DotEnv Node Module with the terminal command:</br>
+                    <strong>$ npm install dotenv</strong>
+                    If done correctly you should now see references to the MongoDB and DotEnv Node modules added to the package.json file:</br>
+                    <strong>
+                        "dependencies": {
+                            "dotenv": "^16.4.5",
+                            "express": "^4.19.2",
+                            "mongodb": "^6.5.0"
+                          }
+                    </strong>
+                </p>
+
+                <h4>
+                    Step 21
+                </h4>
+
+                <p>
+                    Create a new file to store environment variables named <i>.env</i> inside of the root folder of your project.</br></br>
+
+                    If you are using the MongoDB Compass desktop application with a local database then add the following line 
+                    to the .env file to create a connection url variable pointing to your local database server which will be used to connect to MongoDB:</br></br>
+
+                    <strong> CONNECTION_URL=mongodb://127.0.0.1:27017 </strong> </br></br>
+
+                    If you are using an online MongoDB Atlas database then add the following line instead and replace <strong>TestUser</strong> and <strong>TestPassword</strong> 
+                    with the username and password that you're using.</br></br>
+                    If you haven't setup a MongoDB database with a database user then don't worry, we'll register to MongoDB and setup 
+                    a database with a collection and a user in the next steps:</br></br>
+
+                    <strong> CONNECTION_URL=mongodb+srv://TestUser:TestPassword@cluster0.7xcdaqs.mongodb.net/ </strong> </br>
+            
                 </p>
 
             </p>
